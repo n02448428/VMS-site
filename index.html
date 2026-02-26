@@ -13,6 +13,7 @@
         .section-padding { padding: 80px 0; }
         .trust-badge { background: #f8f9fa; border-radius: 10px; padding: 20px; margin: 10px 0; }
         footer { background: #343a40; color: white; padding: 40px 0 20px; }
+        .consent-text { font-size: 0.85rem; opacity: 0.9; }
     </style>
 </head>
 <body>
@@ -89,18 +90,18 @@
         </div>
     </section>
 
-    <!-- Contact/Email -->
+    <!-- Contact/Email + SMS Opt In -->
     <section id="contact" class="section-padding bg-primary text-white">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <h2 class="text-center mb-5">Ready to Scale with AI?</h2>
-                    <p class="text-center lead mb-5">
-                        Get your free AI audit + join 100+ SoCal pros for exclusive tips.
-                        <br>
-                        Phone: (833) 555-1234
-                        <br>
-                        By submitting, you agree to receive SMS updates and support messages from VisionaryMinds Solutions. Message and data rates may apply. Reply STOP to opt out.
+                    <p class="text-center lead mb-4">
+                        Get your free AI audit and see how an AI receptionist could handle your calls, qualify leads, and book appointments 24/7.
+                    </p>
+                    <p class="text-center mb-4">
+                        Phone: (833) 555-1234<br>
+                        Email: hello@visionaryminds.solutions
                     </p>
                     <form action="https://formspree.io/f/xnjbgvdy" method="POST" class="row g-3">
                         <div class="col-md-6">
@@ -111,12 +112,28 @@
                             <label class="form-label">Email</label>
                             <input type="email" class="form-control" name="email" required>
                         </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Mobile Phone</label>
+                            <input type="tel" class="form-control" name="phone" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Business / Industry</label>
+                            <input type="text" class="form-control" name="business" placeholder="e.g. Med spa, HVAC, law firm">
+                        </div>
                         <div class="col-12">
-                            <label class="form-label">Business/Interest</label>
+                            <label class="form-label">What would you like AI to help with?</label>
                             <textarea class="form-control" name="message" rows="3" placeholder="Tell us about your AI needs..."></textarea>
                         </div>
+                        <div class="col-12">
+                            <p class="consent-text">
+                                By submitting this form, you agree to receive SMS and email messages from VisionaryMinds Solutions about your inquiry, AI receptionist demos, and related services. 
+                                Message and data rates may apply. Reply STOP to opt out at any time.
+                            </p>
+                        </div>
                         <div class="col-12 text-center">
-                            <button type="submit" class="btn btn-light btn-lg"><i class="fas fa-paper-plane me-2"></i>Send & Get Audit</button>
+                            <button type="submit" class="btn btn-light btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>Send & Get Audit
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -141,7 +158,8 @@
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault(); document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                e.preventDefault(); 
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
