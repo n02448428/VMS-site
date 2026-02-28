@@ -3,267 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dmitry Markelov d/b/a VisionaryMinds Solutions - AI Agency in San Diego</title>
+    <meta name="description" content="Stop losing jobs to missed calls. Sasha is the 24/7 AI receptionist for SoCal HVAC, plumbing, electrical, roofing, med spas & dental. Free AI Audit + first month FREE (small setup fee). See real booked jobs or turn her off.">
+    <title>Stop Losing Jobs to Missed Calls | Sasha AI Receptionist – VisionaryMinds Solutions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #0d6efd; --secondary: #6c757d; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; }
-        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 100px 0; }
-        .section-padding { padding: 80px 0; }
-        .trust-badge { background: #f8f9fa; border-radius: 10px; padding: 20px; margin: 10px 0; }
-        footer { background: #343a40; color: white; padding: 40px 0 20px; }
-        .consent-text { font-size: 0.85rem; opacity: 0.9; }
-        .form-check-label { font-size: 0.9rem; }
-        a.text-white:hover { opacity: 0.85; }
+        :root {
+            --primary: #0d6efd;
+            --accent: #ff6b00;
+            --dark: #1a1a2e;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #333;
+        }
+        .hero {
+            background: linear-gradient(rgba(26,26,46,0.85), rgba(26,26,46,0.92)), url('https://images.unsplash.com/photo-1551836022-deb4988cc6c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=90') center/cover no-repeat;
+            color: white;
+            padding: 160px 0 120px;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #ff6b00, #0d6efd);
+        }
+        h1, h2 { font-family: 'Playfair Display', sans-serif; }
+        .display-3 { font-weight: 700; letter-spacing: -1px; }
+        .btn-primary {
+            background: var(--accent);
+            border: none;
+            padding: 14px 32px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,107,0,0.4);
+            background: #e55a00;
+        }
+        .btn-outline-light {
+            border-width: 2px;
+            padding: 12px 28px;
+            border-radius: 50px;
+        }
+        .section-padding { padding: 100px 0; }
+        .card { transition: all 0.3s; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .trust-bar {
+            background: #f8f9fa;
+            padding: 18px 0;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #eee;
+        }
+        .icon-box i { font-size: 3.2rem; color: var(--accent); }
+        .offer-box {
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            border: 3px solid var(--accent);
+            border-radius: 20px;
+        }
+        footer { background: var(--dark); }
+        .cta-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(13,110,253,0.4);
+        }
     </style>
 </head>
 <body>
-    <!-- Hero -->
+
+    <!-- Trust Bar -->
+    <div class="trust-bar text-center">
+        <div class="container">
+            <span class="me-4"><i class="fas fa-map-marker-alt text-primary"></i> Oceanside, CA • Serving All SoCal</span>
+            <span class="me-4"><i class="fas fa-shield-alt text-success"></i> No long contracts • Cancel anytime</span>
+            <span><i class="fas fa-dollar-sign text-success"></i> First month FREE • Only keep Sasha if she pays for herself</span>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="#">VisionaryMinds</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#for-who">For Your Business</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how">How Sasha Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#offer">Our Offer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white px-4 ms-3" href="#book">Book Free Audit</a></li>
+                </ul>
+            </div>
+            <a href="tel:7605762546" class="btn btn-outline-primary ms-3 d-none d-lg-inline">
+                <i class="fas fa-phone"></i> (760) 576-2546
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
     <section class="hero text-center">
         <div class="container">
-            <p class="mb-2">Dmitry Markelov presents</p>
-            <h1 class="display-4 fw-bold mb-3">VisionaryMinds Solutions</h1>
-            <p class="lead mb-4">
-                San Diego's Rising AI Agency – Empowering SMBs &amp; Startups with Custom AI Receptionists, Automation, and Revenue Growth
-            </p>
-            <a href="#contact" class="btn btn-light btn-lg me-3">
-                <i class="fas fa-rocket me-2"></i>Get Started – Free AI Audit
-            </a>
-            <a href="#services" class="btn btn-outline-light btn-lg">
-                <i class="fas fa-play me-2"></i>Watch Demo
-            </a>
-        </div>
-    </section>
-
-    <!-- Ownership / About stripe -->
-    <section class="py-4 bg-light">
-        <div class="container text-center">
-            <p class="mb-0">
-                VisionaryMinds Solutions is a boutique AI agency owned and operated by
-                <strong>Dmitry Markelov</strong> (d/b/a VisionaryMinds Solutions) based in Oceanside, California.
-            </p>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="section-padding bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">AI Solutions That Drive Results</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-body text-center">
-                            <i class="fas fa-robot fa-3x text-primary mb-3"></i>
-                            <h5>AI Receptionists &amp; Agents</h5>
-                            <p>
-                                Custom AI receptionists and agents to handle calls and 2‑way SMS – answering FAQs, qualifying leads,
-                                and booking appointments 24/7 for SoCal businesses.
-                            </p>
-                        </div>
-                    </div>
+            <div class="col-lg-10 mx-auto">
+                <p class="mb-3 fw-semibold text-warning fs-5">You're already paying Google & LSA to make the phone ring...</p>
+                <h1 class="display-3 mb-4">Stop Losing Jobs to Missed Calls</h1>
+                <p class="lead fs-3 mb-5">Sasha — the 24/7 AI receptionist engineered for SoCal HVAC, plumbing, electrical, roofing, med spas & dental shops.<br>
+                <strong>Answers 100% of calls • Chases every missed lead • Books jobs while you sleep.</strong></p>
+                
+                <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
+                    <a href="#book" class="btn btn-primary btn-lg px-5 py-4 fs-5">
+                        <i class="fas fa-calendar me-2"></i>Book Your FREE 15-min AI Audit Call
+                    </a>
+                    <a href="sms:7605762546?body=Hi%20Dmitry%2C%20send%20me%20a%20Sasha%20demo%20for%20my%20shop" 
+                       class="btn btn-outline-light btn-lg px-5 py-4 fs-5">
+                        <i class="fas fa-sms me-2"></i>Text “DEMO” to (760) 576-2546
+                    </a>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-body text-center">
-                            <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
-                            <h5>Revenue Automation</h5>
-                            <p>
-                                AI chatbots, workflows, and follow‑up sequences that turn missed calls and cold leads into booked
-                                appointments and new revenue.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-body text-center">
-                            <i class="fas fa-brain fa-3x text-primary mb-3"></i>
-                            <h5>AI Strategy</h5>
-                            <p>
-                                Consulting to integrate AI into your existing systems – from prototypes to fully deployed phone,
-                                SMS, and email automations.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Communication explanation -->
-            <div class="row mt-5">
-                <div class="col-lg-10 mx-auto">
-                    <div class="alert alert-secondary mb-0">
-                        <h6 class="mb-2"><i class="fas fa-comments me-2 text-primary"></i>How We Communicate With You</h6>
-                        <p class="mb-1">
-                            When you request an AI audit or demo, we may follow up about your inquiry via email, SMS (text), 
-                            and phone calls with demos, appointment confirmations/reminders, and service updates.
-                        </p>
-                        <p class="mb-0">
-                            You can opt out of SMS at any time by replying <strong>STOP</strong>. For help, reply <strong>HELP</strong>
-                            or contact us at <a href="mailto:dmitry@visionaryminds.solutions">dmitry@visionaryminds.solutions</a>.
-                        </p>
-                    </div>
-                </div>
+                
+                <p class="mt-4 mb-0 small opacity-75">Only 2–3 new SoCal clients accepted per month • First month completely free (just a small one-time setup fee)</p>
             </div>
         </div>
     </section>
 
-    <!-- About/Trust -->
-    <section class="section-padding">
+    <!-- PROBLEM -->
+    <section class="section-padding bg-light">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4">
-                    <h2>Why San Diego Chooses Us</h2>
-                    <p class="lead">
-                        Oceanside-based AI experts serving SoCal SMBs. We've helped startups and local pros automate operations and
-                        capture more revenue with ethical, transparent AI.
-                    </p>
-                    <div class="trust-badge">
-                        <h6><i class="fas fa-map-marker-alt me-2 text-primary"></i>Local: Oceanside, CA</h6>
-                        <h6><i class="fas fa-shield-alt me-2 text-primary"></i>Secure &amp; Compliance‑Focused</h6>
-                        <h6><i class="fas fa-users me-2 text-primary"></i>Built for Service Businesses &amp; Agencies</h6>
-                    </div>
-                </div>
                 <div class="col-lg-6">
-                    <blockquote class="testimonial p-4 border-start border-5 border-primary">
-                        <p>"Our phones stopped being a bottleneck overnight – the AI receptionist just handles it."</p>
-                        <footer class="blockquote-footer">
-                            SMB Owner, Carlsbad <cite title="Source Title">★ ★ ★ ★ ★</cite>
-                        </footer>
-                    </blockquote>
-                    <blockquote class="testimonial p-4 border-start border-5 border-primary mt-3">
-                        <p>"VisionaryMinds Solutions is on the rise and actually delivers ROI, not just buzzwords."</p>
-                        <footer class="blockquote-footer">
-                            Startup Founder, Encinitas <cite title="Source Title">★ ★ ★ ★ ★</cite>
-                        </footer>
-                    </blockquote>
+                    <h2 class="display-5">20–40% of your paid leads are vanishing into voicemail or “we’ll call you back” hell.</h2>
+                    <p class="lead">You spent the money to make the phone ring. Sasha makes sure every single ring turns into revenue.</p>
+                    <ul class="list-unstyled fs-5">
+                        <li class="mb-3"><i class="fas fa-check text-success me-3"></i>After-hours emergencies answered instantly</li>
+                        <li class="mb-3"><i class="fas fa-check text-success me-3"></i>Simultaneous calls handled without hold music</li>
+                        <li class="mb-3"><i class="fas fa-check text-success me-3"></i>Every missed call texted & followed up automatically</li>
+                        <li><i class="fas fa-check text-success me-3"></i>Qualified jobs booked straight to your calendar</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1559757148-5e995136c87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Happy owner seeing booked jobs" class="img-fluid rounded shadow" style="max-height: 420px;">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact/Email + SMS Opt In -->
-    <section id="contact" class="section-padding bg-primary text-white">
+    <!-- WHO WE HELP -->
+    <section id="for-who" class="section-padding">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h2 class="text-center mb-5">Ready to Scale With AI?</h2>
-                    <p class="text-center lead mb-4">
-                        Get your free AI audit and see how an AI receptionist could handle your calls, qualify leads, and book
-                        appointments 24/7 for your business.
-                    </p>
-                    <p class="text-center mb-4">
-                        Phone: (760) 576-2546<br>
-                        Email: <a href="mailto:dmitry@visionaryminds.solutions" class="text-white">
-                            dmitry@visionaryminds.solutions
-                        </a>
-                    </p>
-
-                    <!-- Important disclosure above form -->
-                    <p class="text-center mb-4 small">
-                        When you submit this form, we may contact you about your inquiry by email, SMS (text), and phone calls.
-                        SMS may include AI receptionist demos, appointment reminders, and service updates. You can opt out of SMS
-                        at any time by replying <strong>STOP</strong>.
-                    </p>
-
-                    <form action="https://formspree.io/f/xnjbgvdy" method="POST" class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label">Name</label>
-                            <input type="text" class="form-control" name="name" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" name="email" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Mobile Phone</label>
-                            <input type="tel" class="form-control" name="phone" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Business / Industry</label>
-                            <input type="text" class="form-control" name="business" placeholder="e.g. Med spa, HVAC, law firm">
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label">What would you like AI to help with?</label>
-                            <textarea class="form-control" name="message" rows="3" placeholder="Tell us about your AI needs..."></textarea>
-                        </div>
-
-                        <!-- OPTIONAL SMS CONSENT CHECKBOX -->
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="smsConsent" name="sms_consent">
-                                <label class="form-check-label" for="smsConsent">
-                                    I agree to receive informational and marketing text messages (SMS) from
-                                    Dmitry Markelov d/b/a VisionaryMinds Solutions about my inquiry, AI receptionist demos,
-                                    appointment reminders, and related services. Message frequency: a few messages per month.
-                                    Message &amp; data rates may apply. Reply STOP to opt out or HELP for help.
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- SMS Terms Box -->
-                        <div class="col-12">
-                            <div class="border rounded p-3 bg-dark bg-opacity-25">
-                                <p class="consent-text mb-1"><strong>SMS Terms (VisionaryMinds Solutions)</strong></p>
-                                <p class="consent-text mb-1">
-                                    Message type: informational and marketing text messages about your inquiry, AI receptionist
-                                    demos, appointment confirmations/reminders, and related services.
-                                </p>
-                                <p class="consent-text mb-1">
-                                    Message frequency: a few messages per month, depending on your activity with us.
-                                </p>
-                                <p class="consent-text mb-1">
-                                    Message &amp; data rates: <strong>message and data rates may apply</strong>, charged by your mobile carrier.
-                                </p>
-                                <p class="consent-text mb-1">
-                                    Opt-out instructions: You can opt out of SMS at any time by replying <strong>STOP</strong>.
-                                    You can reply <strong>HELP</strong> for assistance or email us at
-                                    <a href="mailto:dmitry@visionaryminds.solutions"
-                                       class="text-white text-decoration-underline">dmitry@visionaryminds.solutions</a>.
-                                </p>
-                                <p class="consent-text mb-0">
-                                    By submitting this form, you confirm that you are 18 or older. If you check the SMS consent
-                                    box, you agree to receive SMS messages as described above.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-12 text-center">
-                            <button type="submit" class="btn btn-light btn-lg">
-                                <i class="fas fa-paper-plane me-2"></i>Send &amp; Get My AI Audit
-                            </button>
-                        </div>
-                    </form>
+            <h2 class="text-center mb-5">Built for busy SoCal service business owners like you</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-snowflake fa-4x text-primary mb-4"></i>
+                        <h5>HVAC & Plumbing</h5>
+                        <p class="text-muted">After-hours no-heat / burst pipe calls answered in seconds</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-bolt fa-4x text-warning mb-4"></i>
+                        <h5>Electrical & Roofing</h5>
+                        <p class="text-muted">Emergency calls booked while your crew is on the truck</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4">
+                        <i class="fas fa-spa fa-4x text-pink mb-4"></i>
+                        <h5>Med Spas & Dental</h5>
+                        <p class="text-muted">Appointment confirmations + review requests automated</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- HOW SASHA WORKS -->
+    <section id="how" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">3 simple steps. Real results in days.</h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-5">
+                    <div class="icon-box mb-4"><i class="fas fa-phone-volume"></i></div>
+                    <h5>1. We install Sasha on your existing line</h5>
+                    <p class="text-muted">Takes us 24–48 hrs. You keep your number. Zero tech headaches.</p>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="icon-box mb-4"><i class="fas fa-headset"></i></div>
+                    <h5>2. Sasha answers every call 24/7</h5>
+                    <p class="text-muted">Qualifies, books, follows up missed calls by text & email. Sounds 100% human.</p>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="icon-box mb-4"><i class="fas fa-chart-bar"></i></div>
+                    <h5>3. You get weekly proof</h5>
+                    <p class="text-muted">“Sasha answered 47 calls, booked 12 extra jobs worth ~$8,400 last week”</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE OFFER -->
+    <section id="offer" class="section-padding">
+        <div class="container">
+            <div class="offer-box p-5 mx-auto" style="max-width: 820px;">
+                <div class="text-center">
+                    <span class="badge bg-warning text-dark fs-6 px-4 py-2 mb-3">ZERO RISK TRIAL</span>
+                    <h2 class="display-5">Free “Missed Calls → Booked Jobs” AI Audit<br>+ First Month of Sasha Completely Free</h2>
+                    <p class="lead mt-4">Just a small one-time setup fee to get her live on your line this week.<br>
+                    <strong>If she doesn’t clearly pay for herself in 30 days — you simply don’t continue. No questions asked.</strong></p>
+                    
+                    <div class="mt-5">
+                        <a href="#book" class="btn btn-primary btn-lg px-5 py-4 fs-4">Claim Your Free Audit & Free First Month →</a>
+                    </div>
+                    <p class="mt-4 small text-muted">Only taking 2–3 new local partners this month</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Early SoCal partners are already seeing this</h2>
+            <div class="row g-5 text-center">
+                <div class="col-md-4">
+                    <div class="fs-1 fw-bold text-primary">+100%</div>
+                    <p class="lead">After-hours emergency calls answered</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="fs-1 fw-bold text-primary">14 extra jobs</div>
+                    <p class="lead">Booked in first 11 days for one HVAC shop</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="fs-1 fw-bold text-primary">$0 payroll</div>
+                    <p class="lead">Added while front desk stays exactly the same</p>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p class="fst-italic">"Sasha caught a $2,800 plumbing job at 11:47pm last Friday. I would have lost it." — Local Carlsbad owner</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOK AUDIT -->
+    <section id="book" class="section-padding bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-5 mb-4">Ready to plug the leak?</h2>
+                    <p class="lead mb-5">Book a quick 15–30 minute strategy call with Dmitry.<br>We’ll look at your current call handling, show you exactly what’s being missed, and demo Sasha live for your business.</p>
+                    
+                    <!-- GHL CALENDAR EMBED PLACEHOLDER -->
+                    <div class="bg-white text-dark p-5 rounded-4 shadow mb-5" style="min-height: 420px;">
+                        <p class="text-muted mb-4">← Replace this box with your GoHighLevel calendar embed (iframe)</p>
+                        <p class="fw-bold">Or just text “AUDIT” to (760) 576-2546 right now and I’ll send you the link instantly.</p>
+                    </div>
+                    
+                    <p class="mb-0">Phone: <a href="tel:7605762546" class="text-white fw-bold">(760) 576-2546</a><br>
+                    Email: <a href="mailto:dmitry@visionaryminds.solutions" class="text-white">dmitry@visionaryminds.solutions</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5">Common questions</h2>
+            <div class="accordion mx-auto" style="max-width: 780px;" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">Do I have to change my phone number?</button></h2>
+                    <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">No. Sasha works on your existing main line. Zero disruption.</div></div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">What if Sasha can’t answer something?</button></h2>
+                    <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">She instantly routes to you or your team with full details and urgency flag.</div></div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Is this expensive?</button></h2>
+                    <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Small setup fee + first month free. After that only $1,000/mo if she’s making you money. Most owners keep her because she pays for herself 3–5x over.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-5 bg-dark text-white text-center">
+        <div class="container">
+            <h3 class="mb-4">Don’t let another paid lead hit voicemail tonight.</h3>
+            <a href="#book" class="btn btn-primary btn-lg px-5 py-4 fs-5">Book Your Free AI Audit Now →</a>
+            <p class="mt-4 small opacity-75">Or text “DEMO” to (760) 576-2546</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center">
+    <footer class="text-white py-5">
         <div class="container">
-            <p>
-                &copy; 2026 Dmitry Markelov d/b/a VisionaryMinds Solutions. Oceanside, CA. All rights reserved.
-                <a href="/privacy.html" class="text-white ms-1">Privacy</a> |
-                <a href="/terms.html" class="text-white">Terms</a>
-            </p>
-            <div class="mt-3">
-                <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-2x"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
-                <a href="mailto:dmitry@visionaryminds.solutions" class="text-white"><i class="fas fa-envelope fa-2x"></i></a>
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>VisionaryMinds Solutions</h5>
+                    <p class="small">Boutique AI agency owned & operated by Dmitry Markelov<br>Oceanside, California</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <a href="#book" class="text-white d-block mb-2">Book Free Audit</a>
+                    <a href="tel:7605762546" class="text-white d-block mb-2">(760) 576-2546</a>
+                    <a href="mailto:dmitry@visionaryminds.solutions" class="text-white">dmitry@visionaryminds.solutions</a>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <p class="small">© 2026 Dmitry Markelov d/b/a VisionaryMinds Solutions. All rights reserved.<br>
+                    <a href="/privacy.html" class="text-white">Privacy</a> | <a href="/terms.html" class="text-white">Terms</a></p>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Floating CTA -->
+    <a href="#book" class="btn btn-primary btn-lg rounded-circle cta-float d-flex align-items-center justify-content-center" style="width:68px;height:68px;">
+        <i class="fas fa-calendar fa-2x"></i>
+    </a>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+        // Auto-scroll to book if URL has #book
+        if (window.location.hash === '#book') {
+            document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
