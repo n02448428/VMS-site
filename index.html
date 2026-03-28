@@ -107,16 +107,7 @@
             box-shadow: 0 10px 30px rgba(15,23,42,0.45);
         }
     </style>
-
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init({
-                publicKey: 'YOUR_PUBLIC_KEY_HERE'  <!-- replace with your EmailJS public key -->
-            });
-        })();
-    </script>
+    
 </head>
 <body>
     <!-- Minimal navbar -->
@@ -355,24 +346,34 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- EmailJS form handler -->
     <script>
-        const form = document.getElementById('founder-form');
-        const statusEl = document.getElementById('form-status');
+const form = document.getElementById('founder-form');
+const statusEl = document.getElementById('form-status');
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            statusEl.textContent = 'Sending…';
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    statusEl.textContent = 'Sending…';
 
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-                .then(function() {
-                    statusEl.textContent = 'Got it. I’ll review and reach out personally if there’s a fit for this round.';
-                    form.reset();
-                }, function(error) {
-                    console.error(error);
-                    statusEl.textContent = 'Something glitched. Email me at dmitry@visionaryminds.solutions and I’ll get you on the list.';
-                });
-        });
-    </script>
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    fetch('https://script.google.com/macros/s/AKfycbz03KUcw3eCq5JXAQUNJXZ-WsHrsWk3_IN5_vkoaTrUAaBDXJeoaqsotMqFk3JKiqZzFQ/exec', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(res => res.json())
+    .then(json => {
+        if (json.result === 'success') {
+            statusEl.textContent = "Got it. I'll review and reach out personally if there's a fit for this round.";
+            form.reset();
+        } else {
+            statusEl.textContent = 'Something glitched. Email me at dmitry@visionaryminds.solutions.';
+        }
+    })
+    .catch(() => {
+        statusEl.textContent = 'Something glitched. Email me at dmitry@visionaryminds.solutions.';
+    });
+});
+</script>
 </body>
 </html>
