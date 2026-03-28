@@ -355,23 +355,18 @@ form.addEventListener('submit', function(e) {
 
     const data = Object.fromEntries(new FormData(form).entries());
 
-    fetch('https://script.google.com/macros/s/AKfycbz03KUcw3eCq5JXAQUNJXZ-WsHrsWk3_IN5_vkoaTrUAaBDXJeoaqsotMqFk3JKiqZzFQ/exec', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(res => res.json())
-    .then(json => {
-        if (json.result === 'success') {
+fetch('https://script.google.com/macros/s/AKfycbz03KUcw3eCq5JXAQUNJXZ-WsHrsWk3_IN5_vkoaTrUAaBDXJeoaqsotMqFk3JKiqZzFQ/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            body: new URLSearchParams(data)
+        })
+        .then(() => {
             statusEl.textContent = "Got it. I'll review and reach out personally if there's a fit for this round.";
             form.reset();
-        } else {
+        })
+        .catch(() => {
             statusEl.textContent = 'Something glitched. Email me at dmitry@visionaryminds.solutions.';
-        }
-    })
-    .catch(() => {
-        statusEl.textContent = 'Something glitched. Email me at dmitry@visionaryminds.solutions.';
-    });
+        });
 });
 </script>
 </body>
