@@ -21,13 +21,13 @@
       --accent: #7ed9ca;
       --accent-2: #dffdf7;
       --radius: 24px;
-      --radius-sm: 16px;
       --shadow: 0 24px 64px rgba(0,0,0,0.32);
       --max: 1100px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Inter, system-ui, sans-serif;
@@ -66,22 +66,21 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       font-weight: 700;
       letter-spacing: -0.03em;
     }
 
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(126,217,202,0.16), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.12);
+    .brand img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      display: block;
     }
 
-    .brand-mark svg { width: 18px; height: 18px; }
+    .brand-name {
+      font-size: 1rem;
+    }
 
     .nav {
       display: flex;
@@ -181,7 +180,8 @@
     }
 
     .hero-actions,
-    .hero-pills {
+    .hero-pills,
+    .cta-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -277,7 +277,7 @@
       font-size: clamp(2rem, 4vw, 3.2rem);
       line-height: 0.95;
       letter-spacing: -0.05em;
-      max-width: 9ch;
+      max-width: 10ch;
     }
 
     .cta-copy p {
@@ -285,13 +285,6 @@
       max-width: 50ch;
       color: var(--muted);
       line-height: 1.72;
-    }
-
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: flex-end;
     }
 
     .footer {
@@ -316,7 +309,6 @@
         display: grid;
       }
 
-      .cta-actions { justify-content: flex-start; }
       .nav .nav-link { display: none; }
     }
 
@@ -329,9 +321,11 @@
       .cta-shell { padding: 20px; }
       h1 { max-width: 100%; }
       .hero-actions,
+      .hero-pills,
       .cta-actions { flex-direction: column; }
       .btn { width: 100%; }
       .footer-inner { flex-direction: column; }
+      .brand-name { display: none; }
     }
   </style>
 </head>
@@ -339,18 +333,13 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="VisionaryMinds Solutions home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 17 12 6l7 11"></path>
-            <path d="M8.5 17h7"></path>
-          </svg>
-        </span>
-        <span>VisionaryMinds Solutions</span>
+        <img src="./vms%20logo.png" alt="VisionaryMinds Solutions logo">
+        <span class="brand-name">VisionaryMinds Solutions</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
         <a class="nav-link" href="#services">Services</a>
         <a class="nav-link" href="#why">Why VisionaryMinds</a>
-        <a class="btn btn-primary" href="https://calendly.com/YOUR-REAL-USERNAME/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+        <a class="btn btn-primary" href="mailto:dmitry@visionaryminds.solutions">Email me</a>
       </nav>
     </div>
   </header>
@@ -361,97 +350,4 @@
         <div class="eyebrow">AI systems for modern businesses</div>
         <h1>Less manual work. More leverage.</h1>
         <p class="hero-copy">
-          VisionaryMinds Solutions builds clean AI automations, agents, and workflows that help businesses move faster, respond better, and operate with less friction.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://calendly.com/YOUR-REAL-USERNAME/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
-          <a class="btn btn-secondary" href="https://instagram.com/YOUR-HANDLE" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
-        <div class="hero-pills" aria-label="Key points">
-          <span class="mini-pill">Founder-led</span>
-          <span class="mini-pill">Clear execution</span>
-          <span class="mini-pill">Fast implementation</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="label">Services</div>
-          <h2>What your business can get.</h2>
-          <p>Practical systems that reduce repetitive work, improve response speed, and create cleaner operations.</p>
-        </div>
-        <div class="grid-3">
-          <article class="panel">
-            <div class="label">01</div>
-            <h3>Lead capture</h3>
-            <p>Turn inbound attention into real conversations with faster follow-up and cleaner qualification.</p>
-            <ul class="list">
-              <li>Instant response flows</li>
-              <li>Qualification logic</li>
-              <li>Booking systems</li>
-            </ul>
-          </article>
-          <article class="panel">
-            <div class="label">02</div>
-            <h3>AI agents</h3>
-            <p>Handle common questions and repetitive communication without adding more manual overhead.</p>
-            <ul class="list">
-              <li>Customer-facing assistants</li>
-              <li>Internal knowledge tools</li>
-              <li>Specialized concierge flows</li>
-            </ul>
-          </article>
-          <article class="panel">
-            <div class="label">03</div>
-            <h3>Workflow automation</h3>
-            <p>Connect tools, streamline execution, and remove friction from everyday business operations.</p>
-            <ul class="list">
-              <li>CRM automation</li>
-              <li>Task triggers</li>
-              <li>Cross-platform integrations</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="why">
-      <div class="wrap grid-2">
-        <article class="panel">
-          <div class="label">Why VisionaryMinds</div>
-          <h3>Simple, sharp, and built to work.</h3>
-          <p>You need systems that solve operational problems and support growth, not bloated decks or vague promises.</p>
-        </article>
-        <article class="panel">
-          <div class="label">Who it fits</div>
-          <h3>Built for businesses that value speed and clarity.</h3>
-          <p>Best suited for SMBs, professionals, and startups that want direct communication and practical implementation.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="cta" id="book">
-      <div class="wrap cta-shell">
-        <div class="cta-copy">
-          <div class="label">Next step</div>
-          <h2>Book a call.</h2>
-          <p>If your business needs better systems, faster response, and less operational drag, start with a direct conversation.</p>
-        </div>
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="https://calendly.com/YOUR-REAL-USERNAME/30min" target="_blank" rel="noopener noreferrer">Open booking page</a>
-          <a class="btn btn-secondary" href="mailto:dmitry@visionaryminds.solutions">Email directly</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <span>© 2026 VisionaryMinds Solutions</span>
-      <span>Escondido, California</span>
-    </div>
-  </footer>
-</body>
-</html>
+          VisionaryMinds Solutions builds clean AI automations, agents, and workflows that help businesses move faster, respond 
