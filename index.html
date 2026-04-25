@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VisionaryMinds Solutions</title>
+  <meta name="description" content="Founder-led AI systems studio building clean automations, agents, and workflows for businesses that want more leverage and less chaos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0f12;
+      --bg-soft: #13161a;
+      --panel: rgba(255,255,255,0.04);
+      --panel-strong: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.10);
+      --border-strong: rgba(255,255,255,0.16);
+      --text: #f3f4f6;
+      --muted: #a1a7b3;
+      --faint: #737b88;
+      --accent: #7dd3c7;
+      --accent-strong: #b5fff4;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(125, 211, 199, 0.10), transparent 32%),
+        radial-gradient(circle at 85% 15%, rgba(255,255,255,0.05), transparent 20%),
+        linear-gradient(180deg, #0d0f12 0%, #101318 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(13, 15, 18, 0.68);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(125, 211, 199, 0.14), rgba(255,255,255,0.02));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .brand-mark svg { width: 18px; height: 18px; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+      transition: 180ms ease;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: #0d0f12;
+      border-color: transparent;
+      box-shadow: 0 10px 30px rgba(255,255,255,0.10);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: white;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-strong);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero {
+      padding: 72px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-card,
+    .panel,
+    .booking-shell {
+      background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.025));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+
+    .hero-copy {
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(125, 211, 199, 0.08);
+      border: 1px solid rgba(125, 211, 199, 0.14);
+      color: var(--accent-strong);
+      font-size: 0.85rem;
+      letter-spacing: 0.01em;
+      margin-bottom: 20px;
+    }
+
+    h1, h2, h3, h4, p { margin: 0; }
+
+    h1 {
+      font-family: Manrope, Inter, sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      max-width: 10ch;
+    }
+
+    .hero-copy p {
+      margin-top: 22px;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .micro-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .micro-proof span::before {
+      content: "•";
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    .hero-card {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .hero-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .hero-card-top small,
+    .label,
+    .stat-label {
+      color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+    }
+
+    .hero-card h2 {
+      font-size: 1.35rem;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-card p,
+    .panel p,
+    .booking-copy p {
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .stack-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .stack-item strong {
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .section {
+      padding: 22px 0;
+    }
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .panel h3 {
+      font-size: 1.1rem;
+      margin-top: 8px;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .systems {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .systems .panel {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .systems ul {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .systems li::before {
+      content: "—";
+      color: var(--accent);
+      margin-right: 10px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      font-family: Manrope, Inter, sans-serif;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .section-head p {
+      max-width: 48ch;
+      color: var(--muted);
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      letter-spacing: -0.05em;
+      margin-bottom: 8px;
+    }
+
+    .booking {
+      padding: 24px 0 80px;
+    }
+
+    .booking-shell {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .booking-copy,
+    .booking-box {
+      padding: 30px;
+    }
+
+    .booking-copy {
+      border-right: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(125,211,199,0.04));
+    }
+
+    .booking-copy h2 {
+      font-family: Manrope, Inter, sans-serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 8ch;
+      margin: 14px 0 16px;
+    }
+
+    .booking-notes {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .booking-notes .pill {
+      justify-content: flex-start;
+      width: fit-content;
+    }
+
+    .booking-box iframe {
+      width: 100%;
+      min-height: 720px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .booking-fallback {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer {
+      padding: 0 0 34px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--faint);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 18px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .proof-grid,
+      .booking-shell,
+      .systems,
+      .trust {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-copy { border-right: 0; border-bottom: 1px solid var(--border); }
+      .section-head { align-items: start; flex-direction: column; }
+      .nav a:not(.btn) { display: none; }
+      .stats { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(calc(100% - 20px), var(--max)); }
+      .header-inner { padding: 14px 0; }
+      .hero { padding-top: 36px; }
+      .hero-copy,
+      .hero-card,
+      .panel,
+      .booking-copy,
+      .booking-box { padding: 20px; }
+      h1 { max-width: 100%; }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .footer-inner { flex-direction: column; }
+      .booking-box iframe { min-height: 660px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="VisionaryMinds Solutions home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 17 12 6l7 11" />
+            <path d="M8.5 17h7" />
+          </svg>
+        </span>
+        <span>VisionaryMinds Solutions</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#systems">What I build</a>
+        <a href="#proof">Why this works</a>
+        <a href="#book" class="btn btn-primary">Book a call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Founder-led AI systems studio</div>
+          <h1>Clean AI systems. Clear business leverage.</h1>
+          <p>
+            I design and deploy practical AI automations, agents, and workflows for businesses that want more speed, less chaos, and a serious edge without bloated ops.
+          </p>
+          <div class="hero-actions">
+            <a href="#book" class="btn btn-primary">Book a strategy call</a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Instagram</a>
+          </div>
+          <div class="micro-proof" aria-label="Key trust points">
+            <span>Dark, minimal, premium execution</span>
+            <span>Built for warm traffic from content</span>
+            <span>One goal: qualified calls booked</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Overview card">
+          <div>
+            <div class="hero-card-top">
+              <div>
+                <small>Positioning</small>
+                <h2>Proof of competence, not a brochure site.</h2>
+              </div>
+              <span class="pill">Selective</span>
+            </div>
+            <p style="margin-top: 14px;">
+              This page is built to do one thing well: make a serious prospect trust your taste, understand your value fast, and book a call.
+            </p>
+          </div>
+
+          <div class="stack" aria-label="Capability preview">
+            <div class="stack-item">
+              <strong>Lead capture systems</strong>
+              <span class="label">Inbound</span>
+            </div>
+            <div class="stack-item">
+              <strong>AI agents & assistants</strong>
+              <span class="label">Ops</span>
+            </div>
+            <div class="stack-item">
+              <strong>Workflow automation</strong>
+              <span class="label">Scale</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap trust">
+        <article class="panel">
+          <div class="label">Founder</div>
+          <h3>Dmitry Markelov</h3>
+          <p>Direct operator. No agency bloat. No handoff maze. If we work together, you deal with me.</p>
+        </article>
+        <article class="panel">
+          <div class="label">Approach</div>
+          <h3>Minimal, fast, business-first</h3>
+          <p>I care about clarity, speed, and useful systems that make money or save time. Not AI theater.</p>
+        </article>
+        <article class="panel">
+          <div class="label">Base</div>
+          <h3>Escondido / San Diego, California</h3>
+          <p>Boutique and selective by design. Best fit for businesses that want leverage and move quickly.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="systems">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="label">What I build</div>
+            <h2>Three categories. No fluff.</h2>
+          </div>
+          <p>
+            Keep it broad enough for Instagram traffic, but clear enough that the right buyers instantly know you can help.
+          </p>
+        </div>
+
+        <div class="systems">
+          <article class="panel">
+            <div>
+              <div class="pill">01 · Demand</div>
+              <h3>Lead capture</h3>
+              <p>Systems that respond faster, qualify interest, and route opportunities before they go cold.</p>
+            </div>
+            <ul>
+              <li>Instant lead follow-up</li>
+              <li>Qualification logic</li>
+              <li>Booking funnels</li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <div>
+              <div class="pill">02 · Service</div>
+              <h3>AI agents</h3>
+              <p>Conversational assistants that handle repetitive communication without sounding robotic or chaotic.</p>
+            </div>
+            <ul>
+              <li>Customer support flows</li>
+              <li>Internal knowledge assistants</li>
+              <li>Niche concierge experiences</li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <div>
+              <div class="pill">03 · Operations</div>
+              <h3>Workflow automation</h3>
+              <p>Back-end systems that reduce manual work, connect tools, and remove friction from everyday execution.</p>
+            </div>
+            <ul>
+              <li>CRM and pipeline automations</li>
+              <li>Internal process triggers</li>
+              <li>Cross-platform integrations</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proof">
+      <div class="wrap proof-grid">
+        <article class="panel">
+          <div class="label">Why this works</div>
+          <div class="section-head" style="margin-top: 10px; margin-bottom: 0;">
+            <h2>Warm traffic doesn’t need a lecture.</h2>
+          </div>
+          <p style="margin-top: 16px; max-width: 60ch;">
+            If someone comes from your reels, they already know the vibe. The website just needs to confirm you’re sharp, credible, and worth talking to. Clean design does that faster than overexplaining ever will.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <strong>1</strong>
+              <span class="stat-label">Primary CTA</span>
+            </div>
+            <div class="stat">
+              <strong>3</strong>
+              <span class="stat-label">Core capability buckets</span>
+            </div>
+            <div class="stat">
+              <strong>0</strong>
+              <span class="stat-label">Unnecessary distractions</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="label">Fit</div>
+          <h3 style="margin-top: 10px;">Best for businesses that want leverage.</h3>
+          <p style="margin-top: 12px;">
+            You’re not selling to browsers. You’re selling to people who already felt the signal from the content and just need a clean place to take the next step.
+          </p>
+          <div class="stack" style="margin-top: 20px;">
+            <div class="stack-item"><strong>Founder-led</strong><span class="label">Direct</span></div>
+            <div class="stack-item"><strong>High signal, low noise</strong><span class="label">Clear</span></div>
+            <div class="stack-item"><strong>Booking-first architecture</strong><span class="label">Convert</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="booking" id="book">
+      <div class="wrap booking-shell">
+        <div class="booking-copy">
+          <div class="label">Book a call</div>
+          <h2>Let’s see if there’s a fit.</h2>
+          <p>
+            If you want a sharp operator to help you build AI systems that actually reduce load and create leverage, book a time and we’ll keep it direct.
+          </p>
+          <div class="booking-notes">
+            <span class="pill">20–30 minute strategy call</span>
+            <span class="pill">Best for SMBs, professionals, and startups</span>
+            <span class="pill">No bloated pitch deck nonsense</span>
+          </div>
+        </div>
+
+        <div class="booking-box">
+          <!-- Replace the Calendly URL below with your real booking embed URL -->
+          <iframe
+            src="https://calendly.com/YOUR-CALENDLY-USERNAME/30min?hide_gdpr_banner=1"
+            title="Book a call with VisionaryMinds Solutions"
+            loading="lazy">
+          </iframe>
+          <p class="booking-fallback">
+            If the embed gives you trouble on GitHub Pages, replace it with a button linking directly to your booking page or email <a href="mailto:dmitry@visionaryminds.solutions">dmitry@visionaryminds.solutions</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© 2026 VisionaryMinds Solutions</span>
+      <span>Founder-led AI systems studio · Escondido, California</span>
+    </div>
+  </footer>
+</body>
+</html>
