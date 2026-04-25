@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VisionaryMinds Solutions</title>
-  <meta name="description" content="VisionaryMinds Solutions builds clean AI automations, agents, and workflows for businesses that want faster execution and less operational drag." />
+  <meta name="description" content="VisionaryMinds Solutions builds clean AI systems, automations, and workflows for businesses that want less friction and more leverage.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0d0f12;
-      --panel: rgba(255,255,255,0.04);
-      --border: rgba(255,255,255,0.10);
-      --border-strong: rgba(255,255,255,0.16);
-      --text: #f3f4f6;
-      --muted: #a1a7b3;
-      --faint: #737b88;
-      --accent: #7dd3c7;
-      --accent-strong: #b5fff4;
-      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --bg: #0c0f13;
+      --bg-2: #11161c;
+      --panel: rgba(255, 255, 255, 0.045);
+      --panel-2: rgba(255, 255, 255, 0.03);
+      --border: rgba(255, 255, 255, 0.10);
+      --text: #f5f7fa;
+      --muted: #a4acb8;
+      --faint: #6f7884;
+      --accent: #7ed9ca;
+      --accent-2: #dffdf7;
       --radius: 24px;
-      --max: 1120px;
+      --radius-sm: 16px;
+      --shadow: 0 24px 64px rgba(0,0,0,0.32);
+      --max: 1100px;
     }
 
     * { box-sizing: border-box; }
@@ -29,22 +31,27 @@
     body {
       margin: 0;
       font-family: Inter, system-ui, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(125, 211, 199, 0.08), transparent 30%),
-        linear-gradient(180deg, #0d0f12 0%, #101318 100%);
       color: var(--text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(126,217,202,0.10), transparent 28%),
+        radial-gradient(circle at 100% 0%, rgba(255,255,255,0.04), transparent 18%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       min-height: 100vh;
     }
 
     a { color: inherit; text-decoration: none; }
-    .wrap { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(16px);
-      background: rgba(13, 15, 18, 0.72);
+      z-index: 20;
+      background: rgba(12,15,19,0.78);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
@@ -52,7 +59,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 20px;
       padding: 18px 0;
     }
 
@@ -67,18 +74,27 @@
     .brand-mark {
       width: 34px;
       height: 34px;
-      border-radius: 10px;
-      border: 1px solid var(--border-strong);
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, rgba(125, 211, 199, 0.14), rgba(255,255,255,0.02));
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(126,217,202,0.16), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .brand-mark svg { width: 18px; height: 18px; }
 
-    .nav { display: flex; align-items: center; gap: 18px; }
-    .nav a { color: var(--muted); font-size: 0.95rem; }
-    .nav a:hover { color: var(--text); }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover { color: var(--text); }
 
     .btn {
       display: inline-flex;
@@ -89,88 +105,120 @@
       border-radius: 999px;
       border: 1px solid var(--border);
       font-weight: 600;
-      transition: 180ms ease;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
     }
+
+    .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
       background: var(--text);
-      color: #0d0f12;
+      color: #0c0f13;
       border-color: transparent;
       box-shadow: 0 10px 30px rgba(255,255,255,0.10);
     }
 
-    .btn-primary:hover { transform: translateY(-1px); background: #ffffff; }
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
 
     .hero {
-      padding: 80px 0 26px;
+      padding: 72px 0 24px;
     }
 
     .hero-shell,
     .panel,
-    .booking-shell {
-      background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.025));
+    .cta-shell {
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
     .hero-shell {
-      padding: 38px;
+      padding: 40px;
     }
 
     .eyebrow,
-    .pill {
+    .mini-pill {
       display: inline-flex;
       align-items: center;
       padding: 8px 12px;
       border-radius: 999px;
       font-size: 0.82rem;
       letter-spacing: 0.02em;
-      color: var(--accent-strong);
-      background: rgba(125, 211, 199, 0.08);
-      border: 1px solid rgba(125, 211, 199, 0.14);
+    }
+
+    .eyebrow {
+      color: var(--accent-2);
+      background: rgba(126,217,202,0.08);
+      border: 1px solid rgba(126,217,202,0.16);
+    }
+
+    .mini-pill {
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
     h1,h2,h3,p { margin: 0; }
 
     h1 {
       margin-top: 18px;
+      max-width: 9ch;
       font-family: Manrope, Inter, sans-serif;
       font-size: clamp(3rem, 8vw, 6rem);
       line-height: 0.92;
       letter-spacing: -0.07em;
-      max-width: 9ch;
     }
 
     .hero-copy {
-      max-width: 66ch;
+      max-width: 62ch;
       margin-top: 22px;
       color: var(--muted);
-      font-size: 1.06rem;
+      font-size: 1.05rem;
       line-height: 1.75;
     }
 
-    .hero-actions {
+    .hero-actions,
+    .hero-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
+      gap: 12px;
     }
 
-    .hero-notes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
+    .hero-actions { margin-top: 28px; }
+    .hero-pills { margin-top: 22px; }
+
+    .section {
+      padding: 22px 0;
     }
 
-    .hero-notes .pill {
+    .section-head {
+      margin-bottom: 16px;
+    }
+
+    .label {
+      color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+    }
+
+    .section-head h2 {
+      margin-top: 10px;
+      font-family: Manrope, Inter, sans-serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .section-head p {
+      margin-top: 12px;
+      max-width: 54ch;
       color: var(--muted);
-      background: rgba(255,255,255,0.03);
-      border-color: rgba(255,255,255,0.08);
+      line-height: 1.72;
     }
-
-    .section { padding: 22px 0; }
 
     .grid-3,
     .grid-2 {
@@ -181,42 +229,18 @@
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
     .grid-2 { grid-template-columns: repeat(2, 1fr); }
 
-    .panel { padding: 24px; }
-
-    .label {
-      color: var(--faint);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.72rem;
+    .panel {
+      padding: 24px;
     }
 
     .panel h3 {
       margin-top: 8px;
       margin-bottom: 10px;
-      font-size: 1.14rem;
+      font-size: 1.12rem;
       letter-spacing: -0.03em;
     }
 
     .panel p {
-      color: var(--muted);
-      line-height: 1.72;
-    }
-
-    .section-head {
-      margin-bottom: 16px;
-    }
-
-    .section-head h2 {
-      margin-top: 10px;
-      font-family: Manrope, Inter, sans-serif;
-      font-size: clamp(1.9rem, 4vw, 3rem);
-      letter-spacing: -0.05em;
-      line-height: 0.98;
-    }
-
-    .section-head p {
-      margin-top: 12px;
-      max-width: 54ch;
       color: var(--muted);
       line-height: 1.72;
     }
@@ -236,65 +260,38 @@
       margin-right: 10px;
     }
 
-    .booking {
+    .cta {
       padding: 24px 0 80px;
     }
 
-    .booking-shell {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      overflow: hidden;
+    .cta-shell {
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .booking-copy,
-    .booking-box { padding: 28px; }
-
-    .booking-copy {
-      border-right: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(125,211,199,0.04));
-    }
-
-    .booking-copy h2 {
-      margin-top: 12px;
+    .cta-copy h2 {
       font-family: Manrope, Inter, sans-serif;
       font-size: clamp(2rem, 4vw, 3.2rem);
       line-height: 0.95;
       letter-spacing: -0.05em;
-      max-width: 8ch;
+      max-width: 9ch;
     }
 
-    .booking-copy p {
-      margin-top: 16px;
+    .cta-copy p {
+      margin-top: 14px;
+      max-width: 50ch;
       color: var(--muted);
       line-height: 1.72;
     }
 
-    .booking-points {
-      display: grid;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .booking-points .pill {
-      width: fit-content;
-      color: var(--muted);
-      background: rgba(255,255,255,0.03);
-      border-color: rgba(255,255,255,0.08);
-    }
-
-    .booking-box iframe {
-      width: 100%;
-      min-height: 720px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.02);
-    }
-
-    .booking-fallback {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.6;
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
     }
 
     .footer {
@@ -314,27 +311,27 @@
     @media (max-width: 960px) {
       .grid-3,
       .grid-2,
-      .booking-shell {
+      .cta-shell {
         grid-template-columns: 1fr;
+        display: grid;
       }
 
-      .booking-copy { border-right: 0; border-bottom: 1px solid var(--border); }
-      .nav a:not(.btn) { display: none; }
+      .cta-actions { justify-content: flex-start; }
+      .nav .nav-link { display: none; }
     }
 
     @media (max-width: 640px) {
       .wrap { width: min(calc(100% - 20px), var(--max)); }
       .header-inner { padding: 14px 0; }
-      .hero { padding-top: 38px; }
+      .hero { padding-top: 40px; }
       .hero-shell,
       .panel,
-      .booking-copy,
-      .booking-box { padding: 20px; }
+      .cta-shell { padding: 20px; }
       h1 { max-width: 100%; }
-      .hero-actions { flex-direction: column; }
+      .hero-actions,
+      .cta-actions { flex-direction: column; }
       .btn { width: 100%; }
       .footer-inner { flex-direction: column; }
-      .booking-box iframe { min-height: 660px; }
     }
   </style>
 </head>
@@ -344,16 +341,16 @@
       <a class="brand" href="#top" aria-label="VisionaryMinds Solutions home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 17 12 6l7 11" />
-            <path d="M8.5 17h7" />
+            <path d="M5 17 12 6l7 11"></path>
+            <path d="M8.5 17h7"></path>
           </svg>
         </span>
         <span>VisionaryMinds Solutions</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#services">Services</a>
-        <a href="#why">Why VisionaryMinds</a>
-        <a href="#book" class="btn btn-primary">Book a call</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#why">Why VisionaryMinds</a>
+        <a class="btn btn-primary" href="https://calendly.com/YOUR-REAL-USERNAME/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
       </nav>
     </div>
   </header>
@@ -364,16 +361,16 @@
         <div class="eyebrow">AI systems for modern businesses</div>
         <h1>Less manual work. More leverage.</h1>
         <p class="hero-copy">
-          VisionaryMinds Solutions builds clean AI automations, agents, and workflows that help your business move faster, respond better, and operate with less friction.
+          VisionaryMinds Solutions builds clean AI automations, agents, and workflows that help businesses move faster, respond better, and operate with less friction.
         </p>
         <div class="hero-actions">
-          <a href="#book" class="btn btn-primary">Book a call</a>
-          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="btn">Instagram</a>
+          <a class="btn btn-primary" href="https://calendly.com/YOUR-REAL-USERNAME/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+          <a class="btn btn-secondary" href="https://instagram.com/YOUR-HANDLE" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
-        <div class="hero-notes" aria-label="Key selling points">
-          <span class="pill">Founder-led</span>
-          <span class="pill">Clear execution</span>
-          <span class="pill">Booking-first</span>
+        <div class="hero-pills" aria-label="Key points">
+          <span class="mini-pill">Founder-led</span>
+          <span class="mini-pill">Clear execution</span>
+          <span class="mini-pill">Fast implementation</span>
         </div>
       </div>
     </section>
@@ -383,38 +380,36 @@
         <div class="section-head">
           <div class="label">Services</div>
           <h2>What your business can get.</h2>
-          <p>
-            Practical systems that reduce response time, remove repetitive work, and create cleaner operations.
-          </p>
+          <p>Practical systems that reduce repetitive work, improve response speed, and create cleaner operations.</p>
         </div>
         <div class="grid-3">
           <article class="panel">
             <div class="label">01</div>
             <h3>Lead capture</h3>
-            <p>Respond faster, qualify better, and turn more inbound attention into real conversations.</p>
+            <p>Turn inbound attention into real conversations with faster follow-up and cleaner qualification.</p>
             <ul class="list">
-              <li>Instant follow-up</li>
-              <li>Qualification flows</li>
+              <li>Instant response flows</li>
+              <li>Qualification logic</li>
               <li>Booking systems</li>
             </ul>
           </article>
           <article class="panel">
             <div class="label">02</div>
             <h3>AI agents</h3>
-            <p>Handle common questions, support interactions, and repetitive communication without extra headcount.</p>
+            <p>Handle common questions and repetitive communication without adding more manual overhead.</p>
             <ul class="list">
               <li>Customer-facing assistants</li>
               <li>Internal knowledge tools</li>
-              <li>Specialized concierge workflows</li>
+              <li>Specialized concierge flows</li>
             </ul>
           </article>
           <article class="panel">
             <div class="label">03</div>
             <h3>Workflow automation</h3>
-            <p>Connect tools, streamline execution, and reduce operational drag across your business.</p>
+            <p>Connect tools, streamline execution, and remove friction from everyday business operations.</p>
             <ul class="list">
               <li>CRM automation</li>
-              <li>Task and process triggers</li>
+              <li>Task triggers</li>
               <li>Cross-platform integrations</li>
             </ul>
           </article>
@@ -427,43 +422,26 @@
         <article class="panel">
           <div class="label">Why VisionaryMinds</div>
           <h3>Simple, sharp, and built to work.</h3>
-          <p>
-            You do not need bloated strategy decks or vague AI promises. You need systems that solve real operational problems and support growth.
-          </p>
+          <p>You need systems that solve operational problems and support growth, not bloated decks or vague promises.</p>
         </article>
         <article class="panel">
           <div class="label">Who it fits</div>
-          <h3>Best for businesses that value speed and clarity.</h3>
-          <p>
-            Ideal for SMBs, professionals, and startups that want practical implementation, direct communication, and cleaner execution.
-          </p>
+          <h3>Built for businesses that value speed and clarity.</h3>
+          <p>Best suited for SMBs, professionals, and startups that want direct communication and practical implementation.</p>
         </article>
       </div>
     </section>
 
-    <section class="booking" id="book">
-      <div class="wrap booking-shell">
-        <div class="booking-copy">
-          <div class="label">Book a call</div>
-          <h2>See if there’s a fit.</h2>
-          <p>
-            If you want AI systems that reduce load, improve response, and create leverage, book a call and let’s talk through the opportunity.
-          </p>
-          <div class="booking-points">
-            <span class="pill">20–30 minute call</span>
-            <span class="pill">Direct and practical</span>
-            <span class="pill">No unnecessary pitch</span>
-          </div>
+    <section class="cta" id="book">
+      <div class="wrap cta-shell">
+        <div class="cta-copy">
+          <div class="label">Next step</div>
+          <h2>Book a call.</h2>
+          <p>If your business needs better systems, faster response, and less operational drag, start with a direct conversation.</p>
         </div>
-        <div class="booking-box">
-          <iframe
-            src="https://calendly.com/YOUR-CALENDLY-USERNAME/30min?hide_gdpr_banner=1"
-            title="Book a call with VisionaryMinds Solutions"
-            loading="lazy">
-          </iframe>
-          <p class="booking-fallback">
-            Replace the Calendly URL with your real booking link. If embeds act weird on GitHub Pages, swap this for a single button to your scheduler or email <a href="mailto:dmitry@visionaryminds.solutions">dmitry@visionaryminds.solutions</a>.
-          </p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://calendly.com/YOUR-REAL-USERNAME/30min" target="_blank" rel="noopener noreferrer">Open booking page</a>
+          <a class="btn btn-secondary" href="mailto:dmitry@visionaryminds.solutions">Email directly</a>
         </div>
       </div>
     </section>
