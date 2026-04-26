@@ -23,6 +23,7 @@
       --radius: 24px;
       --shadow: 0 24px 64px rgba(0,0,0,0.32);
       --max: 1100px;
+      --header-h: 72px;
     }
 
     * { box-sizing: border-box; }
@@ -37,6 +38,7 @@
         radial-gradient(circle at 100% 0%, rgba(255,255,255,0.04), transparent 18%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       min-height: 100vh;
+      padding-top: var(--header-h);
     }
 
     a { color: inherit; text-decoration: none; }
@@ -47,20 +49,22 @@
     }
 
     .site-header {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 20;
-      background: rgba(12,15,19,0.78);
-      backdrop-filter: blur(14px);
+      background: rgba(12,15,19,0.88);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .header-inner {
+      height: var(--header-h);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 18px 0;
     }
 
     .brand {
@@ -72,14 +76,14 @@
     }
 
     .brand img {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       object-fit: contain;
       display: block;
     }
 
     .brand-name {
-      font-size: 1rem;
+      font-size: 0.98rem;
     }
 
     .nav {
@@ -99,12 +103,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
+      min-height: 40px;
       padding: 0 18px;
       border-radius: 999px;
       border: 1px solid var(--border);
       font-weight: 600;
+      font-size: 0.94rem;
       transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      cursor: pointer;
     }
 
     .btn:hover { transform: translateY(-1px); }
@@ -122,7 +128,7 @@
     }
 
     .hero {
-      padding: 72px 0 24px;
+      padding: 48px 0 24px;
     }
 
     .hero-shell,
@@ -314,7 +320,6 @@
 
     @media (max-width: 640px) {
       .wrap { width: min(calc(100% - 20px), var(--max)); }
-      .header-inner { padding: 14px 0; }
       .hero { padding-top: 40px; }
       .hero-shell,
       .panel,
@@ -333,7 +338,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="VisionaryMinds Solutions home">
-        <!-- If you rename to vms-logo.png, update the src accordingly -->
+        <!-- If you rename to vms-logo.png, update this src -->
         <img src="./vms%20logo.png" alt="VisionaryMinds Solutions logo">
         <span class="brand-name">VisionaryMinds Solutions</span>
       </a>
@@ -388,17 +393,17 @@
           <article class="panel">
             <div class="label">02 · Custom websites & tools</div>
             <h3>Clean, focused sites and digital builds.</h3>
-            <p>From simple landing pages to unique projects (like mixtape sites), built to look sharp and stay easy to use.</p>
+            <p>Websites and simple tools built around what you actually need — fast to load, easy to use, and aligned with the rest of your systems.</p>
             <ul class="list">
               <li>Custom websites & landing pages</li>
-              <li>Portfolios, promos, and “made by VMS” projects</li>
-              <li>Simple tools tailored to your idea</li>
+              <li>Portfolios and marketing pages</li>
+              <li>Lightweight tools and microsites</li>
             </ul>
           </article>
           <article class="panel">
             <div class="label">03 · Tech setup & support</div>
             <h3>All the technical glue handled for you.</h3>
-            <p>SEO, integrations, and ongoing support so your tools talk to each other and you don’t have to fight with settings.</p>
+            <p>SEO, integrations, and support so your tools talk to each other and you don’t have to fight with settings.</p>
             <ul class="list">
               <li>SEO & basic optimization</li>
               <li>CRM and tool integrations</li>
@@ -413,7 +418,7 @@
       <div class="wrap grid-2">
         <article class="panel">
           <div class="label">Why VisionaryMinds</div>
-          <h3>AI‑first, but not AI‑only.</h3>
+          <h3>AI‑first, without the hype.</h3>
           <p>
             The edge comes from AI and automation — but real results need good foundations. I handle the systems, sites, and tech around it so you don’t end up with “just another tool” you never use.
           </p>
@@ -434,7 +439,7 @@
           <div class="label">Contact</div>
           <h2>Reach out directly.</h2>
           <p>
-            Whether you found this from Instagram, a “made by VMS” link, or a referral — if you want cleaner systems, better execution, or a custom build, send an email or DM and we’ll see if it makes sense to work together.
+            If you want cleaner systems, better execution, or a custom build, send an email or DM with a few lines about what you’re working on and we’ll see if it makes sense to move forward.
           </p>
         </div>
         <div class="cta-actions">
