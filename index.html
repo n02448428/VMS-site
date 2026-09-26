@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VisionaryMinds Solutions</title>
-  <meta name="description" content="VisionaryMinds Solutions is an AI‑first tech studio that builds automations, custom websites, and practical systems for business owners who aren’t tech‑savvy.">
+  <title>VisionaryMinds Solutions — AI Receptionist for Small Business</title>
+  <meta name="description" content="Done-for-you AI receptionists for small businesses. Filters every call — you only talk to the ones that matter. Call the live demo now.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <!-- Favicon using your logo -->
   <link rel="icon" type="image/png" href="./vms%20logo.png">
   <style>
     :root {
@@ -78,15 +77,13 @@
     }
 
     .brand img {
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       object-fit: contain;
       display: block;
     }
 
-    .brand-name {
-      font-size: 0.98rem;
-    }
+    .brand-name { font-size: 0.98rem; }
 
     .nav {
       display: flex;
@@ -129,13 +126,20 @@
       color: var(--text);
     }
 
-    .hero {
-      padding: 48px 0 24px;
+    .btn-call {
+      background: var(--accent);
+      color: #0c0f13;
+      border-color: transparent;
+      box-shadow: 0 10px 30px rgba(126,217,202,0.25);
+      font-weight: 700;
     }
+
+    .hero { padding: 48px 0 24px; }
 
     .hero-shell,
     .panel,
-    .cta-shell {
+    .cta-shell,
+    .demo-shell {
       background: linear-gradient(180deg, var(--panel), var(--panel-2));
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -144,6 +148,28 @@
 
     .hero-shell {
       padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(126,217,202,0.14), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 8px 24px rgba(126,217,202,0.25));
     }
 
     .eyebrow,
@@ -172,24 +198,86 @@
 
     h1 {
       margin-top: 18px;
-      max-width: 9ch;
+      max-width: 14ch;
       font-family: Manrope, Inter, sans-serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      line-height: 0.92;
-      letter-spacing: -0.07em;
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    h1 .grad {
+      background: linear-gradient(120deg, var(--accent-2), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .hero-copy {
-      max-width: 62ch;
+      max-width: 60ch;
       margin-top: 22px;
       color: var(--muted);
       font-size: 1.05rem;
       line-height: 1.75;
     }
 
+    /* Filter visual: noise vs signal */
+    .filter-demo {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .filter-col {
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .filter-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .filter-noise { background: rgba(255,255,255,0.02); }
+    .filter-noise .filter-label { color: var(--faint); }
+
+    .filter-signal {
+      border-color: rgba(126,217,202,0.35);
+      background: rgba(126,217,202,0.06);
+      box-shadow: 0 0 40px rgba(126,217,202,0.08);
+    }
+    .filter-signal .filter-label { color: var(--accent); }
+
+    .tag {
+      display: inline-block;
+      margin: 4px 6px 4px 0;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    .filter-noise .tag {
+      color: var(--faint);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      text-decoration: line-through;
+    }
+
+    .filter-signal .tag {
+      color: var(--accent-2);
+      background: rgba(126,217,202,0.10);
+      border: 1px solid rgba(126,217,202,0.30);
+      font-weight: 600;
+    }
+
     .hero-actions,
     .hero-pills,
-    .cta-actions {
+    .cta-actions,
+    .demo-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -198,13 +286,151 @@
     .hero-actions { margin-top: 28px; }
     .hero-pills { margin-top: 22px; }
 
-    .section {
-      padding: 22px 0;
+    /* Hero two-column layout */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 36px;
+      align-items: center;
     }
 
-    .section-head {
-      margin-bottom: 16px;
+    .hero-visual img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
     }
+
+    /* Demo two-column layout + phone mockup */
+    .demo-shell { text-align: left; }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .demo-text > p {
+      margin-top: 16px;
+      max-width: 52ch;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .demo-text .demo-actions { justify-content: flex-start; }
+
+    .phone-mock {
+      width: 270px;
+      margin: 0 auto;
+      border-radius: 44px;
+      padding: 14px;
+      background: #05070a;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(126,217,202,0.08);
+    }
+
+    .phone-screen {
+      border-radius: 32px;
+      background: linear-gradient(180deg, #10151c, #0a0e13);
+      padding: 34px 20px 28px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .call-avatar {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a5c9e, #7ed9ca);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Manrope, Inter, sans-serif;
+      font-weight: 800;
+      font-size: 1.9rem;
+      color: #fff;
+      box-shadow: 0 0 40px rgba(126,217,202,0.30);
+    }
+
+    .call-name {
+      margin-top: 14px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .call-status {
+      margin-top: 8px;
+      color: var(--accent-2);
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .wave-bars {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      align-items: flex-end;
+      height: 46px;
+      margin: 24px 0;
+    }
+
+    .wave-bars span {
+      width: 5px;
+      border-radius: 3px;
+      background: var(--accent);
+      animation: wave 1.2s ease-in-out infinite;
+    }
+
+    .wave-bars span:nth-child(1) { animation-delay: 0s; }
+    .wave-bars span:nth-child(2) { animation-delay: 0.1s; }
+    .wave-bars span:nth-child(3) { animation-delay: 0.2s; }
+    .wave-bars span:nth-child(4) { animation-delay: 0.3s; }
+    .wave-bars span:nth-child(5) { animation-delay: 0.4s; }
+    .wave-bars span:nth-child(6) { animation-delay: 0.5s; }
+    .wave-bars span:nth-child(7) { animation-delay: 0.4s; }
+    .wave-bars span:nth-child(8) { animation-delay: 0.3s; }
+    .wave-bars span:nth-child(9) { animation-delay: 0.2s; }
+    .wave-bars span:nth-child(10) { animation-delay: 0.1s; }
+    .wave-bars span:nth-child(11) { animation-delay: 0.15s; }
+    .wave-bars span:nth-child(12) { animation-delay: 0.25s; }
+
+    @keyframes wave {
+      0%, 100% { height: 10px; opacity: 0.5; }
+      50% { height: 42px; opacity: 1; }
+    }
+
+    .call-bubble {
+      background: rgba(126,217,202,0.08);
+      border: 1px solid rgba(126,217,202,0.20);
+      border-radius: 16px;
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .section { padding: 22px 0; }
+
+    .section-head { margin-bottom: 16px; }
 
     .label {
       color: var(--faint);
@@ -239,6 +465,12 @@
 
     .panel {
       padding: 24px;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .panel:hover {
+      transform: translateY(-2px);
+      border-color: rgba(126,217,202,0.25);
     }
 
     .panel h3 {
@@ -268,9 +500,61 @@
       margin-right: 10px;
     }
 
-    .cta {
-      padding: 24px 0 80px;
+    /* Demo section */
+    .demo-shell {
+      padding: 40px;
+      border-color: rgba(126,217,202,0.25);
     }
+
+    .demo-shell h2 {
+      margin-top: 12px;
+      font-family: Manrope, Inter, sans-serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .demo-shell > p {
+      margin: 16px auto 0;
+      max-width: 52ch;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .demo-number {
+      display: inline-block;
+      margin-top: 26px;
+      font-family: Manrope, Inter, sans-serif;
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--accent-2);
+      padding: 18px 34px;
+      border-radius: 20px;
+      border: 1px solid rgba(126,217,202,0.35);
+      background: rgba(126,217,202,0.06);
+      box-shadow: 0 0 60px rgba(126,217,202,0.10);
+    }
+
+    .demo-actions {
+      margin-top: 26px;
+      justify-content: center;
+    }
+
+    .demo-points {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    /* Pricing */
+    .price-card { position: relative; }
+
+    .price-card .btn { margin-top: 18px; }
+
+    .cta { padding: 24px 0 80px; }
 
     .cta-shell {
       padding: 30px;
@@ -295,13 +579,12 @@
       line-height: 1.72;
     }
 
-    .footer {
-      padding: 0 0 34px;
-    }
+    .footer { padding: 0 0 34px; }
 
     .footer-inner {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 16px;
       padding-top: 18px;
       border-top: 1px solid rgba(255,255,255,0.08);
@@ -309,14 +592,30 @@
       font-size: 0.9rem;
     }
 
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    .footer-links { display: flex; gap: 16px; }
+    .footer-links a:hover { color: var(--text); }
+
     @media (max-width: 960px) {
       .grid-3,
       .grid-2,
-      .cta-shell {
+      .cta-shell,
+      .hero-grid,
+      .demo-grid {
         grid-template-columns: 1fr;
         display: grid;
       }
-
       .nav .nav-link { display: none; }
     }
 
@@ -325,12 +624,16 @@
       .hero { padding-top: 40px; }
       .hero-shell,
       .panel,
-      .cta-shell { padding: 20px; }
+      .cta-shell,
+      .demo-shell { padding: 20px; }
       h1 { max-width: 100%; }
+      .filter-demo { grid-template-columns: 1fr; }
       .hero-actions,
       .hero-pills,
-      .cta-actions { flex-direction: column; }
+      .cta-actions,
+      .demo-actions { flex-direction: column; }
       .btn { width: 100%; }
+      .demo-number { width: 100%; padding: 16px 10px; }
       .footer-inner { flex-direction: column; }
       .brand-name { display: none; }
     }
@@ -340,14 +643,15 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="VisionaryMinds Solutions home">
-        <!-- If you rename to vms-logo.png, update this src and the favicon href above -->
         <img src="./vms%20logo.png" alt="VisionaryMinds Solutions logo">
         <span class="brand-name">VisionaryMinds Solutions</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a class="nav-link" href="#services">Services</a>
-        <a class="nav-link" href="#why">Why VisionaryMinds</a>
-        <a class="btn btn-primary" href="mailto:dmitry@visionaryminds.solutions?subject=Project%20inquiry">Email me</a>
+        <a class="nav-link" href="#how">How it works</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <!-- DEMO NUMBER PLACEHOLDER: replace tel: link and number text -->
+        <a class="btn btn-call" href="tel:+15550102030">Call the demo</a>
       </nav>
     </div>
   </header>
@@ -355,19 +659,164 @@
   <main id="top">
     <section class="hero">
       <div class="wrap hero-shell">
-        <div class="eyebrow">AI systems & custom tech for modern businesses</div>
-        <h1>Less manual work. More leverage.</h1>
-        <p class="hero-copy">
-          VisionaryMinds Solutions is an AI‑first tech studio. We design and build automations, custom websites, and practical systems for business owners who want things to just work — without needing to be “good with tech.”
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:dmitry@visionaryminds.solutions?subject=Project%20inquiry">Email me</a>
-          <a class="btn btn-secondary" href="https://instagram.com/visionaryminds.solutions" target="_blank" rel="noopener noreferrer">DM on Instagram</a>
+        <div class="hero-grid">
+          <div class="hero-text">
+            <img class="hero-logo" src="./vms%20logo.png" alt="VisionaryMinds Solutions logo">
+            <div class="eyebrow">AI receptionist for small businesses</div>
+            <h1>Only talk to the <span class="grad">calls that matter.</span></h1>
+            <p class="hero-copy">
+              Your AI receptionist filters every call — screening out spam, qualifying real callers,
+              and transferring the urgent ones to you live. The noise never reaches you.
+              The customers always do.
+            </p>
+            <div class="hero-actions">
+              <!-- DEMO NUMBER PLACEHOLDER -->
+              <a class="btn btn-call" href="tel:+15550102030">Call the live demo</a>
+              <a class="btn btn-secondary" href="#how">See how it works</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img src="./vms-hero-waves.webp" alt="Chaotic call noise dissolving into calm, filtered waves">
+          </div>
+        </div>
+        <div class="filter-demo" aria-label="How filtering works">
+          <div class="filter-col filter-noise">
+            <div class="filter-label">✕ Filtered out</div>
+            <span class="tag">Spam</span>
+            <span class="tag">Robocalls</span>
+            <span class="tag">Solicitors</span>
+            <span class="tag">Wrong numbers</span>
+          </div>
+          <div class="filter-col filter-signal">
+            <div class="filter-label">✓ Reaches you</div>
+            <span class="tag">Customers</span>
+            <span class="tag">Emergencies</span>
+            <span class="tag">Bookings</span>
+            <span class="tag">Hot leads</span>
+          </div>
         </div>
         <div class="hero-pills" aria-label="Key points">
-          <span class="mini-pill">AI systems & automations</span>
-          <span class="mini-pill">Custom sites & tools</span>
-          <span class="mini-pill">Built for non‑technical clients</span>
+          <span class="mini-pill">Answers 24/7</span>
+          <span class="mini-pill">Screens spam</span>
+          <span class="mini-pill">Qualifies callers</span>
+          <span class="mini-pill">Transfers urgent calls live</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="demo">
+      <div class="wrap demo-shell">
+        <div class="demo-grid">
+          <div class="demo-text">
+            <div class="label">Live demo</div>
+            <h2>Don't take our word for it.<br>Call it right now.</h2>
+            <p>
+              This number rings a working AI receptionist — the same kind we build for businesses.
+              Call it and hear what your front desk could sound like.
+            </p>
+            <!-- DEMO NUMBER PLACEHOLDER: replace tel: link and number text -->
+            <a class="demo-number" href="tel:+15550102030">(555) 010-2030</a>
+            <div class="demo-actions">
+              <!-- DEMO NUMBER PLACEHOLDER -->
+              <a class="btn btn-call" href="tel:+15550102030">Tap to call</a>
+            </div>
+          </div>
+          <div class="phone-mock" aria-label="Illustration of a live AI receptionist call">
+            <div class="phone-screen">
+              <div class="call-avatar">V</div>
+              <div class="call-name">AI Receptionist</div>
+              <div class="call-status"><span class="pulse-dot"></span>Answering now</div>
+              <div class="wave-bars" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="call-bubble">"Thanks for calling — are you a new or existing customer?"</div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-points">
+          <span class="mini-pill">Answers instantly</span>
+          <span class="mini-pill">Asks the right questions</span>
+          <span class="mini-pill">Transfers urgent calls to you</span>
+          <span class="mini-pill">Sends you every detail</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">How it works</div>
+          <h2>Live in days, not months.</h2>
+          <p>One short call with us, and we handle everything after that.</p>
+        </div>
+        <div class="grid-3">
+          <article class="panel">
+            <div class="label">01 · Discovery</div>
+            <h3>We learn your business.</h3>
+            <p>A 30-minute call. We learn who calls you, what a good call looks like, and what you need from every caller.</p>
+          </article>
+          <article class="panel">
+            <div class="label">02 · Build</div>
+            <h3>We build your receptionist.</h3>
+            <p>Your greeting, your questions, your rules — scripted, voiced, and configured around your business. You approve everything before it goes live.</p>
+          </article>
+          <article class="panel">
+            <div class="label">03 · Launch</div>
+            <h3>You stop missing calls.</h3>
+            <p>Your receptionist goes live on your business line. Every call answered, every message delivered to you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="who">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Who it's for</div>
+          <h2>Built for businesses that live on calls.</h2>
+          <p>If missed calls cost you customers, this pays for itself.</p>
+        </div>
+        <div class="hero-pills">
+          <span class="mini-pill">Home services</span>
+          <span class="mini-pill">Medical & dental</span>
+          <span class="mini-pill">Legal</span>
+          <span class="mini-pill">Real estate</span>
+          <span class="mini-pill">Restaurants</span>
+          <span class="mini-pill">Salons & clinics</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Pricing</div>
+          <h2>Simple, fixed, no surprises.</h2>
+          <p>One setup to build it. One monthly plan to run it.</p>
+        </div>
+        <div class="grid-2">
+          <article class="panel price-card">
+            <div class="label">Setup · one-time</div>
+            <h3>Your receptionist, built for you.</h3>
+            <ul class="list">
+              <li>Custom call script — your greeting, your questions</li>
+              <li>Your business phone number, configured</li>
+              <li>Spam filtering & live call transfer</li>
+              <li>Testing with you before launch</li>
+            </ul>
+            <a class="btn btn-secondary" href="mailto:dmitry@visionaryminds.solutions?subject=Receptionist%20setup%20pricing">Ask about setup pricing</a>
+          </article>
+          <article class="panel price-card">
+            <div class="label">Care plan · monthly</div>
+            <h3>It keeps running. We keep it sharp.</h3>
+            <ul class="list">
+              <li>24/7 answering, every day of the year</li>
+              <li>Script tweaks whenever your business changes</li>
+              <li>Monthly health check on calls & messages</li>
+              <li>Direct support when you need it</li>
+            </ul>
+            <a class="btn btn-secondary" href="mailto:dmitry@visionaryminds.solutions?subject=Receptionist%20care%20plan">Ask about the care plan</a>
+          </article>
         </div>
       </div>
     </section>
@@ -375,63 +824,26 @@
     <section class="section" id="services">
       <div class="wrap">
         <div class="section-head">
-          <div class="label">Services</div>
-          <h2>What your business can get.</h2>
-          <p>
-            AI systems, custom builds, and technical solutions designed for people who aren’t tech‑savvy — clear communication, no jargon, and systems that actually work.
-          </p>
+          <div class="label">More from VisionaryMinds</div>
+          <h2>Everything else we build.</h2>
         </div>
         <div class="grid-3">
           <article class="panel">
-            <div class="label">01 · AI & automation</div>
-            <h3>Smarter systems that do the busy work.</h3>
-            <p>Automations and AI agents that respond faster, follow up, and handle repetitive tasks so you and your team don’t have to.</p>
-            <ul class="list">
-              <li>Lead capture & follow‑up flows</li>
-              <li>Customer‑facing AI assistants</li>
-              <li>Internal workflow automation</li>
-            </ul>
+            <div class="label">AI & automation</div>
+            <h3>Systems that do the busy work.</h3>
+            <p>Lead follow-up flows, AI assistants, and workflow automation for your team.</p>
           </article>
           <article class="panel">
-            <div class="label">02 · Custom websites & tools</div>
-            <h3>Clean, focused sites and digital builds.</h3>
-            <p>Websites and simple tools built around what you actually need — fast to load, easy to use, and aligned with the rest of your systems.</p>
-            <ul class="list">
-              <li>Custom websites & landing pages</li>
-              <li>Portfolios and marketing pages</li>
-              <li>Lightweight tools and microsites</li>
-            </ul>
+            <div class="label">Custom websites</div>
+            <h3>Clean sites, built around you.</h3>
+            <p>Fast, focused websites and landing pages aligned with the rest of your systems.</p>
           </article>
           <article class="panel">
-            <div class="label">03 · Tech setup & support</div>
-            <h3>All the technical glue handled for you.</h3>
-            <p>SEO, integrations, and support so your tools talk to each other and you don’t have to fight with settings.</p>
-            <ul class="list">
-              <li>SEO & basic optimization</li>
-              <li>CRM and tool integrations</li>
-              <li>Ongoing technical support</li>
-            </ul>
+            <div class="label">Tech setup & support</div>
+            <h3>The technical glue, handled.</h3>
+            <p>Integrations, SEO basics, and ongoing support — no fighting with settings.</p>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="why">
-      <div class="wrap grid-2">
-        <article class="panel">
-          <div class="label">Why VisionaryMinds</div>
-          <h3>AI‑first, without the hype.</h3>
-          <p>
-            The edge comes from AI and automation — but real results need good foundations. We handle the systems, sites, and tech around it so you don’t end up with “just another tool” you never use.
-          </p>
-        </article>
-        <article class="panel">
-          <div class="label">Built for non‑technical clients</div>
-          <h3>You don’t have to speak “tech.”</h3>
-          <p>
-            You bring the business goals. We translate that into clear, practical systems — with normal language, direct communication, and no overwhelming complexity.
-          </p>
-        </article>
       </div>
     </section>
 
@@ -439,13 +851,15 @@
       <div class="wrap cta-shell">
         <div class="cta-copy">
           <div class="label">Contact</div>
-          <h2>Reach out directly.</h2>
+          <h2>Talk to us.</h2>
           <p>
-            If you want cleaner systems, better execution, or a custom build, send an email or DM with a few lines about what you’re working on and we’ll see if it makes sense to move forward.
+            Call, email, or DM. Tell us about your business in a few lines and we'll take it from there.
           </p>
         </div>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="mailto:dmitry@visionaryminds.solutions?subject=Project%20inquiry">Email me</a>
+          <!-- DEMO NUMBER PLACEHOLDER -->
+          <a class="btn btn-call" href="tel:+15550102030">Call us</a>
+          <a class="btn btn-primary" href="mailto:dmitry@visionaryminds.solutions?subject=AI%20receptionist%20inquiry">Email me</a>
           <a class="btn btn-secondary" href="https://instagram.com/visionaryminds.solutions" target="_blank" rel="noopener noreferrer">Instagram DM</a>
         </div>
       </div>
@@ -454,8 +868,14 @@
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <span>© 2026 VisionaryMinds Solutions</span>
-      <span>San Diego, California</span>
+      <span class="footer-brand">
+        <img src="./vms%20logo.png" alt="VisionaryMinds Solutions logo">
+        © 2026 VisionaryMinds Solutions · San Diego, California
+      </span>
+      <span class="footer-links">
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+      </span>
     </div>
   </footer>
 </body>
