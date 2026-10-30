@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VisionaryMinds Solutions — AI Receptionist for Small Business</title>
-  <meta name="description" content="Done-for-you AI receptionists for small businesses. Filters every call — you only talk to the ones that matter. Call the live demo now.">
+  <title>VisionaryMinds Solutions — Custom AI Software for Small Business</title>
+  <meta name="description" content="Custom AI software for small businesses. Our AI receptionist screens your calls and emails you what matters. Call the live demo now.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -17,10 +17,11 @@
       --panel-2: rgba(255, 255, 255, 0.03);
       --border: rgba(255, 255, 255, 0.10);
       --text: #f5f7fa;
-      --muted: #a4acb8;
-      --faint: #6f7884;
-      --accent: #7ed9ca;
-      --accent-2: #dffdf7;
+      --muted: #c6cdd9;
+      --faint: #98a2b3;
+      --accent: #4a9eff;
+      --teal: #7ed9ca;
+      --accent-2: #d6e9ff;
       --radius: 24px;
       --shadow: 0 24px 64px rgba(0,0,0,0.32);
       --max: 1100px;
@@ -33,9 +34,11 @@
     body {
       margin: 0;
       font-family: Inter, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
       color: var(--text);
       background:
-        radial-gradient(circle at 0% 0%, rgba(126,217,202,0.10), transparent 28%),
+        radial-gradient(circle at 0% 0%, rgba(74,158,255,0.10), transparent 28%),
         radial-gradient(circle at 100% 0%, rgba(255,255,255,0.04), transparent 18%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       min-height: 100vh;
@@ -130,7 +133,7 @@
       background: var(--accent);
       color: #0c0f13;
       border-color: transparent;
-      box-shadow: 0 10px 30px rgba(126,217,202,0.25);
+      box-shadow: 0 10px 30px rgba(74,158,255,0.25);
       font-weight: 700;
     }
 
@@ -159,17 +162,39 @@
       right: -120px;
       width: 340px;
       height: 340px;
-      background: radial-gradient(circle, rgba(126,217,202,0.14), transparent 70%);
+      background: radial-gradient(circle, rgba(74,158,255,0.14), transparent 70%);
       pointer-events: none;
     }
 
+
+    /* Entrancing aurora drift */
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      top: -40%;
+      left: -20%;
+      width: 140%;
+      height: 180%;
+      background:
+        radial-gradient(ellipse 40% 30% at 30% 40%, rgba(74,158,255,0.10), transparent 70%),
+        radial-gradient(ellipse 35% 25% at 70% 60%, rgba(126,217,202,0.08), transparent 70%);
+      animation: aurora 14s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes aurora {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+      50% { transform: translate(4%, -3%) scale(1.08); opacity: 1; }
+      100% { transform: translate(-3%, 4%) scale(0.96); opacity: 0.8; }
+    }
+    .hero-shell > * { position: relative; z-index: 1; }
+
     .hero-logo {
-      width: 76px;
-      height: 76px;
+      width: 52px;
+      height: 52px;
       object-fit: contain;
       display: block;
       margin-bottom: 20px;
-      filter: drop-shadow(0 8px 24px rgba(126,217,202,0.25));
+      filter: drop-shadow(0 8px 24px rgba(74,158,255,0.25));
     }
 
     .eyebrow,
@@ -184,8 +209,8 @@
 
     .eyebrow {
       color: var(--accent-2);
-      background: rgba(126,217,202,0.08);
-      border: 1px solid rgba(126,217,202,0.16);
+      background: rgba(74,158,255,0.08);
+      border: 1px solid rgba(74,158,255,0.16);
     }
 
     .mini-pill {
@@ -206,7 +231,7 @@
     }
 
     h1 .grad {
-      background: linear-gradient(120deg, var(--accent-2), var(--accent));
+      background: linear-gradient(120deg, var(--accent), var(--teal));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -268,7 +293,7 @@
     }
 
     .filter-signal .tag {
-      color: var(--accent-2);
+      color: #dffff7;
       background: rgba(126,217,202,0.10);
       border: 1px solid rgba(126,217,202,0.30);
       font-weight: 600;
@@ -277,6 +302,20 @@
     .hero-actions,
     .hero-pills,
     .cta-actions,
+    .demo-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .demo-number {
+      animation: demoGlow 3s ease-in-out infinite;
+    }
+    @keyframes demoGlow {
+      0%, 100% { box-shadow: 0 0 60px rgba(74,158,255,0.10); }
+      50% { box-shadow: 0 0 90px rgba(74,158,255,0.22); }
+    }
+
     .demo-actions {
       display: flex;
       flex-wrap: wrap;
@@ -328,7 +367,7 @@
       padding: 14px;
       background: #05070a;
       border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(126,217,202,0.08);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(74,158,255,0.08);
     }
 
     .phone-screen {
@@ -344,7 +383,7 @@
       height: 76px;
       margin: 0 auto;
       border-radius: 50%;
-      background: linear-gradient(135deg, #1a5c9e, #7ed9ca);
+      background: linear-gradient(135deg, #075c95, #4a9eff);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -352,7 +391,7 @@
       font-weight: 800;
       font-size: 1.9rem;
       color: #fff;
-      box-shadow: 0 0 40px rgba(126,217,202,0.30);
+      box-shadow: 0 0 40px rgba(74,158,255,0.30);
     }
 
     .call-name {
@@ -396,6 +435,9 @@
       width: 5px;
       border-radius: 3px;
       background: var(--accent);
+    }
+    .wave-bars span:nth-child(even) {
+      background: var(--teal);
       animation: wave 1.2s ease-in-out infinite;
     }
 
@@ -418,8 +460,8 @@
     }
 
     .call-bubble {
-      background: rgba(126,217,202,0.08);
-      border: 1px solid rgba(126,217,202,0.20);
+      background: rgba(74,158,255,0.08);
+      border: 1px solid rgba(74,158,255,0.20);
       border-radius: 16px;
       padding: 12px 14px;
       font-size: 0.88rem;
@@ -470,7 +512,7 @@
 
     .panel:hover {
       transform: translateY(-2px);
-      border-color: rgba(126,217,202,0.25);
+      border-color: rgba(74,158,255,0.25);
     }
 
     .panel h3 {
@@ -503,7 +545,7 @@
     /* Demo section */
     .demo-shell {
       padding: 40px;
-      border-color: rgba(126,217,202,0.25);
+      border-color: rgba(74,158,255,0.25);
     }
 
     .demo-shell h2 {
@@ -531,9 +573,9 @@
       color: var(--accent-2);
       padding: 18px 34px;
       border-radius: 20px;
-      border: 1px solid rgba(126,217,202,0.35);
-      background: rgba(126,217,202,0.06);
-      box-shadow: 0 0 60px rgba(126,217,202,0.10);
+      border: 1px solid rgba(74,158,255,0.35);
+      background: rgba(74,158,255,0.06);
+      box-shadow: 0 0 60px rgba(74,158,255,0.10);
     }
 
     .demo-actions {
@@ -599,8 +641,8 @@
     }
 
     .footer-brand img {
-      width: 30px;
-      height: 30px;
+      width: 44px;
+      height: 44px;
       object-fit: contain;
     }
 
@@ -635,7 +677,10 @@
       .btn { width: 100%; }
       .demo-number { width: 100%; padding: 16px 10px; }
       .footer-inner { flex-direction: column; }
-      .brand-name { display: none; }
+      .brand-name { display: inline; font-size: 0.82rem; line-height: 1.2; max-width: 110px; }
+      .header-inner { gap: 10px; }
+      .brand { gap: 10px; }
+      .nav .btn-call { padding: 0 14px; font-size: 0.85rem; white-space: nowrap; }
     }
   </style>
 </head>
@@ -650,8 +695,7 @@
         <a class="nav-link" href="#how">How it works</a>
         <a class="nav-link" href="#pricing">Pricing</a>
         <a class="nav-link" href="#contact">Contact</a>
-        <!-- DEMO NUMBER PLACEHOLDER: replace tel: link and number text -->
-        <a class="btn btn-call" href="tel:+15550102030">Call the demo</a>
+        <a class="btn btn-call" href="tel:+16193402683">Call the demo</a>
       </nav>
     </div>
   </header>
@@ -661,17 +705,22 @@
       <div class="wrap hero-shell">
         <div class="hero-grid">
           <div class="hero-text">
-            <img class="hero-logo" src="./vms%20logo.png" alt="VisionaryMinds Solutions logo">
-            <div class="eyebrow">AI receptionist for small businesses</div>
-            <h1>Only talk to the <span class="grad">calls that matter.</span></h1>
+            <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+              <img class="hero-logo" src="./vms%20logo.png" alt="VisionaryMinds Solutions logo" style="margin:0;">
+              <span style="font-family:Manrope,Inter,sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:-0.02em;">Visionary Minds<br>Solutions</span>
+            </div>
+            <div class="eyebrow">Custom AI solutions company</div>
+            <h1>Your business,<br><span class="grad">transformed.</span></h1>
             <p class="hero-copy">
-              Your AI receptionist filters every call — screening out spam, qualifying real callers,
-              and transferring the urgent ones to you live. The noise never reaches you.
-              The customers always do.
+              Custom AI solutions for businesses ready to operate on another level &mdash;
+              more revenue, more freedom, a company that will never run the same way again.
+            </p>
+            <p class="hero-copy" style="margin-top:12px;">
+              Our flagship product is <strong style="color:var(--text);">Cove</strong> &mdash; the AI receptionist.
+              It starts with the phone. It doesn&rsquo;t end there.
             </p>
             <div class="hero-actions">
-              <!-- DEMO NUMBER PLACEHOLDER -->
-              <a class="btn btn-call" href="tel:+15550102030">Call the live demo</a>
+              <a class="btn btn-call" href="tel:+16193402683">Call the live demo</a>
               <a class="btn btn-secondary" href="#how">See how it works</a>
             </div>
           </div>
@@ -681,25 +730,57 @@
         </div>
         <div class="filter-demo" aria-label="How filtering works">
           <div class="filter-col filter-noise">
-            <div class="filter-label">✕ Filtered out</div>
-            <span class="tag">Spam</span>
-            <span class="tag">Robocalls</span>
-            <span class="tag">Solicitors</span>
-            <span class="tag">Wrong numbers</span>
+            <div class="filter-label">✕ Without a receptionist</div>
+            <span class="tag">Missed calls</span>
+            <span class="tag">After hours</span>
+            <span class="tag">While you're busy</span>
+            <span class="tag">Unknown numbers</span>
           </div>
           <div class="filter-col filter-signal">
-            <div class="filter-label">✓ Reaches you</div>
-            <span class="tag">Customers</span>
-            <span class="tag">Emergencies</span>
-            <span class="tag">Bookings</span>
-            <span class="tag">Hot leads</span>
+            <div class="filter-label">✓ With your AI receptionist</div>
+            <span class="tag">Greeted by name</span>
+            <span class="tag">Asked your questions</span>
+            <span class="tag">Briefed to you by email</span>
+            <span class="tag">Flagged if urgent</span>
           </div>
         </div>
         <div class="hero-pills" aria-label="Key points">
-          <span class="mini-pill">Answers 24/7</span>
-          <span class="mini-pill">Screens spam</span>
-          <span class="mini-pill">Qualifies callers</span>
-          <span class="mini-pill">Transfers urgent calls live</span>
+          <span class="mini-pill">Screens 24/7</span>
+          <span class="mini-pill">Captures every caller</span>
+          <span class="mini-pill">Asks your questions</span>
+          <span class="mini-pill">Briefs you by email</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="stats">
+      <div class="wrap">
+        <div class="grid-3" style="text-align:center;">
+          <article class="panel"><h3 style="font-size:2.6rem;color:var(--accent);margin:0;">24/7</h3><p>Every missed call screened, nights &amp; weekends included</p></article>
+          <article class="panel"><h3 style="font-size:2.6rem;color:var(--accent);margin:0;">$249</h3><p>Flat per month. No per-call meters, ever</p></article>
+          <article class="panel"><h3 style="font-size:2.6rem;color:var(--accent);margin:0;">10<span style="font-size:1.4rem;">min</span></h3><p>From signup to live receptionist</p></article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="secret-weapon">
+      <div class="wrap">
+        <div class="panel" style="text-align:center;padding:56px 32px;border-color:rgba(74,158,255,0.40);background:linear-gradient(180deg,rgba(74,158,255,0.10),rgba(74,158,255,0.03));">
+          <div class="label" style="color:var(--accent);">Your secret weapon</div>
+          <h2 style="margin-top:14px;font-family:Manrope,Inter,sans-serif;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-0.05em;line-height:1;">While competitors lose calls<br>to voicemail, you operate above it.</h2>
+          <p style="margin:20px auto 0;max-width:52ch;color:var(--muted);line-height:1.75;font-size:1.05rem;">It screens your calls, asks the questions you&rsquo;d ask, and emails you everything &mdash; name, what they need, how to reach them. You never pick up. You never wonder who called.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="dont-lose">
+      <div class="wrap">
+        <div style="text-align:center;padding:40px 24px;">
+          <h2 style="font-family:Manrope,Inter,sans-serif;font-size:clamp(2.8rem,8vw,5rem);letter-spacing:-0.05em;line-height:0.95;margin:0;">DON&rsquo;T LOSE JOBS.</h2>
+          <p style="margin:22px auto 0;max-width:52ch;color:var(--muted);line-height:1.75;font-size:1.1rem;">Know who&rsquo;s calling and why &mdash; without picking up your phone. Every caller greeted. Every detail captured. Every briefing on your phone before you&rsquo;ve finished what you&rsquo;re doing.</p>
         </div>
       </div>
     </section>
@@ -709,16 +790,18 @@
         <div class="demo-grid">
           <div class="demo-text">
             <div class="label">Live demo</div>
-            <h2>Don't take our word for it.<br>Call it right now.</h2>
+            <h2>Meet Cove.<br>Hear it working.</h2>
             <p>
-              This number rings a working AI receptionist — the same kind we build for businesses.
-              Call it and hear what your front desk could sound like.
+              Cove is our flagship AI receptionist. This number rings a working Cove line &mdash;
+              call it right now and hear what your business could sound like.
             </p>
-            <!-- DEMO NUMBER PLACEHOLDER: replace tel: link and number text -->
-            <a class="demo-number" href="tel:+15550102030">(555) 010-2030</a>
+            <a class="demo-number" href="tel:+16193402683">(619) 340-2683</a>
             <div class="demo-actions">
-              <!-- DEMO NUMBER PLACEHOLDER -->
-              <a class="btn btn-call" href="tel:+15550102030">Tap to call</a>
+              <a class="btn btn-call" href="tel:+16193402683">Tap to call</a>
+            </div>
+            <div style="margin-top:28px;padding:20px;border-radius:16px;background:rgba(74,158,255,0.06);border:1px solid rgba(74,158,255,0.20);">
+              <div class="label" style="margin-bottom:10px;">What lands on your phone</div>
+              <p style="font-size:0.95rem;line-height:1.7;color:var(--text);"><strong>New urgent call &mdash; 11:47 PM</strong><br><span style="color:var(--muted);">Water heater leaking, garage flooding. Caller: Mike R., 619-555-0147. Flagged urgent.</span></p>
             </div>
           </div>
           <div class="phone-mock" aria-label="Illustration of a live AI receptionist call">
@@ -729,15 +812,105 @@
               <div class="wave-bars" aria-hidden="true">
                 <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
               </div>
-              <div class="call-bubble">"Thanks for calling — are you a new or existing customer?"</div>
+              <div class="call-bubble">"Thanks for calling Apex Plumbing. Can I get your name?"</div>
             </div>
           </div>
         </div>
         <div class="demo-points">
           <span class="mini-pill">Answers instantly</span>
           <span class="mini-pill">Asks the right questions</span>
-          <span class="mini-pill">Transfers urgent calls to you</span>
+          <span class="mini-pill">Flags what's urgent</span>
           <span class="mini-pill">Sends you every detail</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="vision">
+      <div class="wrap">
+        <div class="section-head" style="text-align:center;max-width:640px;margin:0 auto 28px;">
+          <div class="label">The vision</div>
+          <h2>A business that runs<br>without you chained to it.</h2>
+          <p style="margin-left:auto;margin-right:auto;">Not a better voicemail. A company transformed &mdash; operating on another level while you live your life.</p>
+        </div>
+        <div class="grid-3">
+          <article class="panel" style="position:relative;overflow:hidden;">
+            <div class="mini-pill" style="margin-bottom:14px;color:var(--accent);border-color:rgba(74,158,255,0.30);">10:42 AM</div>
+            <div class="label">On the job</div>
+            <h3>You&rsquo;re with a client.</h3>
+            <p>The phone rings &mdash; twice. Both callers hear your greeting, answer your questions, and every detail lands in your email inbox. You never broke focus. You never wondered who called.</p>
+          </article>
+          <article class="panel" style="position:relative;overflow:hidden;">
+            <div class="mini-pill" style="margin-bottom:14px;color:var(--accent);border-color:rgba(74,158,255,0.30);">9:15 PM</div>
+            <div class="label">After hours</div>
+            <h3>It&rsquo;s 9pm. You&rsquo;re at dinner.</h3>
+            <p>An urgent call comes in at 9pm. Your receptionist greets them, captures every detail, and flags it urgent. You wake up to a briefing &mdash; not a voicemail.</p>
+          </article>
+          <article class="panel" style="position:relative;overflow:hidden;">
+            <div class="mini-pill" style="margin-bottom:14px;color:var(--accent);border-color:rgba(74,158,255,0.30);">30 days in</div>
+            <div class="label">Growing</div>
+            <h3>You stopped leaking jobs.</h3>
+            <p>Every missed call screened. Every lead captured. Every detail on your phone before you&rsquo;ve had coffee. You&rsquo;re not working more &mdash; your business is simply operating on another level.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="sample-calls">
+      <div class="wrap">
+        <div class="section-head" style="text-align:center;max-width:640px;margin:0 auto 28px;">
+          <div class="label">Sample calls</div>
+          <h2>Here&rsquo;s what it sounds like.</h2>
+          <p style="margin-left:auto;margin-right:auto;">How it works: your receptionist greets the caller, asks your questions, and emails you the answers. Sample scripts below &mdash; call the demo number above to hear the real thing.</p>
+        </div>
+        <div class="grid-3">
+          <article class="panel">
+            <div class="mini-pill" style="margin-bottom:14px;color:var(--accent);border-color:rgba(74,158,255,0.30);">Plumbing &mdash; 11:47 PM</div>
+            <div style="display:grid;gap:10px;font-size:0.92rem;line-height:1.6;">
+              <p><strong style="color:var(--accent-2);">Receptionist:</strong> <span style="color:var(--muted);">Thanks for calling Apex Plumbing. Can I get your name?</span></p>
+              <p><strong style="color:var(--accent-2);">Caller:</strong> <span style="color:var(--muted);">Mike.</span></p>
+              <p><strong style="color:var(--accent-2);">Receptionist:</strong> <span style="color:var(--muted);">How can I help you today?</span></p>
+              <p><strong style="color:var(--accent-2);">Caller:</strong> <span style="color:var(--muted);">My water heater&rsquo;s leaking all over the garage.</span></p>
+              <p><strong style="color:var(--accent-2);">Receptionist:</strong> <span style="color:var(--muted);">What&rsquo;s the best number to reach you?</span></p>
+              <p><strong style="color:var(--accent-2);">Caller:</strong> <span style="color:var(--muted);">619-555-0147.</span></p>
+              <p style="border-top:1px solid rgba(255,255,255,0.08);padding-top:10px;"><strong style="color:var(--accent);">Text to owner:</strong> <span style="color:var(--muted);">New call 11:47 PM &mdash; Mike, water heater leaking, garage flooding. Call back: 619-555-0147.</span></p>
+            </div>
+          </article>
+          <article class="panel">
+            <div class="mini-pill" style="margin-bottom:14px;color:var(--accent);border-color:rgba(74,158,255,0.30);">Dental &mdash; 2:15 PM</div>
+            <div style="display:grid;gap:10px;font-size:0.92rem;line-height:1.6;">
+              <p><strong style="color:var(--accent-2);">Receptionist:</strong> <span style="color:var(--muted);">Thanks for calling Bright Smile Dental. Can I get your name?</span></p>
+              <p><strong style="color:var(--accent-2);">Caller:</strong> <span style="color:var(--muted);">Sarah.</span></p>
+              <p><strong style="color:var(--accent-2);">Receptionist:</strong> <span style="color:var(--muted);">How can I help you today?</span></p>
+              <p><strong style="color:var(--accent-2);">Caller:</strong> <span style="color:var(--muted);">I chipped a tooth and it really hurts.</span></p>
+              <p><strong style="color:var(--accent-2);">Receptionist:</strong> <span style="color:var(--muted);">What&rsquo;s the best number to reach you?</span></p>
+              <p><strong style="color:var(--accent-2);">Caller:</strong> <span style="color:var(--muted);">619-555-0192.</span></p>
+              <p style="border-top:1px solid rgba(255,255,255,0.08);padding-top:10px;"><strong style="color:var(--accent);">Text to owner:</strong> <span style="color:var(--muted);">New call 2:15 PM &mdash; Sarah, chipped tooth, in pain. Call back: 619-555-0192.</span></p>
+            </div>
+          </article>
+          <article class="panel">
+            <div class="mini-pill" style="margin-bottom:14px;color:var(--accent);border-color:rgba(74,158,255,0.30);">Legal &mdash; 6:30 PM</div>
+            <div style="display:grid;gap:10px;font-size:0.92rem;line-height:1.6;">
+              <p><strong style="color:var(--accent-2);">Receptionist:</strong> <span style="color:var(--muted);">Thanks for calling Hartman Legal. Can I get your name?</span></p>
+              <p><strong style="color:var(--accent-2);">Caller:</strong> <span style="color:var(--muted);">Dave.</span></p>
+              <p><strong style="color:var(--accent-2);">Receptionist:</strong> <span style="color:var(--muted);">How can I help you today?</span></p>
+              <p><strong style="color:var(--accent-2);">Caller:</strong> <span style="color:var(--muted);">I was in a car accident yesterday and need some advice.</span></p>
+              <p><strong style="color:var(--accent-2);">Receptionist:</strong> <span style="color:var(--muted);">What&rsquo;s the best number to reach you?</span></p>
+              <p><strong style="color:var(--accent-2);">Caller:</strong> <span style="color:var(--muted);">619-555-0118.</span></p>
+              <p style="border-top:1px solid rgba(255,255,255,0.08);padding-top:10px;"><strong style="color:var(--accent);">Text to owner:</strong> <span style="color:var(--muted);">New call 6:30 PM &mdash; Dave, car accident, needs legal advice. Call back: 619-555-0118.</span></p>
+            </div>
+          </article>
+          <article class="panel" style="border-color:rgba(74,158,255,0.35);background:rgba(74,158,255,0.06);grid-column:1/-1;max-width:560px;margin:0 auto;width:100%;">
+            <div class="mini-pill" style="margin-bottom:14px;color:var(--accent);border-color:rgba(74,158,255,0.30);">Your business &mdash; tonight</div>
+            <div style="display:grid;gap:10px;font-size:0.92rem;line-height:1.6;">
+              <p><strong style="color:var(--accent-2);">Receptionist:</strong> <span style="color:var(--muted);">Thanks for calling <em style="color:var(--text);font-style:normal;">[your business]</em>. Can I get your name?</span></p>
+              <p><strong style="color:var(--accent-2);">Caller:</strong> <span style="color:var(--muted);"><em style="color:var(--text);font-style:normal;">[your next customer]</em> &mdash; with <em style="color:var(--text);font-style:normal;">[a problem you solve]</em>.</span></p>
+              <p><strong style="color:var(--accent-2);">Receptionist:</strong> <span style="color:var(--muted);">What&rsquo;s the best number to reach you?</span></p>
+              <p style="border-top:1px solid rgba(255,255,255,0.08);padding-top:10px;"><strong style="color:var(--accent);">Text to you:</strong> <span style="color:var(--muted);">New call &mdash; <em style="color:var(--text);font-style:normal;">[a job you would have missed]</em>. Call back: <em style="color:var(--text);font-style:normal;">[their number]</em>.</span></p>
+              <p style="margin-top:8px;"><a href="#pricing" style="color:var(--accent);font-weight:600;">This could be live tomorrow &rarr;</a></p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -746,24 +919,24 @@
       <div class="wrap">
         <div class="section-head">
           <div class="label">How it works</div>
-          <h2>Live in days, not months.</h2>
-          <p>One short call with us, and we handle everything after that.</p>
+          <h2>Live in minutes. Or white-glove.</h2>
+          <p>Self-serve signup &mdash; live within 24 hours. Or white-glove: we build it with you, around your business.</p>
         </div>
         <div class="grid-3">
           <article class="panel">
-            <div class="label">01 · Discovery</div>
-            <h3>We learn your business.</h3>
-            <p>A 30-minute call. We learn who calls you, what a good call looks like, and what you need from every caller.</p>
+            <div class="label">01 · Sign up</div>
+            <h3>Choose your path.</h3>
+            <p>Self-serve: pick your plan, set your greeting, get your number &mdash; live in 10 minutes. White-glove: a 30-minute call where we learn your business and build everything for you.</p>
           </article>
           <article class="panel">
-            <div class="label">02 · Build</div>
-            <h3>We build your receptionist.</h3>
-            <p>Your greeting, your questions, your rules — scripted, voiced, and configured around your business. You approve everything before it goes live.</p>
+            <div class="label">02 · Configure</div>
+            <h3>Your receptionist, your rules.</h3>
+            <p>Your greeting, your questions, your voice &mdash; set it yourself in minutes, or we script and voice everything around your business. You approve it all before it goes live.</p>
           </article>
           <article class="panel">
-            <div class="label">03 · Launch</div>
-            <h3>You stop missing calls.</h3>
-            <p>Your receptionist goes live on your business line. Every call answered, every message delivered to you.</p>
+            <div class="label">03 · Operate</div>
+            <h3>Your business, transformed.</h3>
+            <p>Every missed call handled. Every detail delivered to your phone. More revenue, more freedom &mdash; a company that will never run the same way again.</p>
           </article>
         </div>
       </div>
@@ -787,62 +960,188 @@
       </div>
     </section>
 
-    <section class="section" id="pricing">
+
+    <section class="section" id="compare">
       <div class="wrap">
         <div class="section-head">
-          <div class="label">Pricing</div>
-          <h2>Simple, fixed, no surprises.</h2>
-          <p>One setup to build it. One monthly plan to run it.</p>
+          <div class="label">Why us</div>
+          <h2>The old way is over.</h2>
+          <p>Receptionists cost $3,000 a month. Services meter you per call. We built something better &mdash; one flat rate, and your business never operates the same way again.</p>
         </div>
-        <div class="grid-2">
-          <article class="panel price-card">
-            <div class="label">Setup · one-time</div>
-            <h3>Your receptionist, built for you.</h3>
-            <ul class="list">
-              <li>Custom call script — your greeting, your questions</li>
-              <li>Your business phone number, configured</li>
-              <li>Spam filtering & live call transfer</li>
-              <li>Testing with you before launch</li>
+        <div class="grid-3">
+          <article class="panel">
+            <div class="label">Hiring a receptionist</div>
+            <h3>$3,000+/mo</h3>
+            <ul style="list-style:none;padding:0;margin-top:12px;display:grid;gap:10px;">
+              <li><span style="color:#ff6b6b;">&#10005;</span> <span style="color:var(--muted);">Sick days, turnover, training</span></li>
+              <li><span style="color:#ff6b6b;">&#10005;</span> <span style="color:var(--muted);">Business hours only</span></li>
+              <li><span style="color:#ff6b6b;">&#10005;</span> <span style="color:var(--muted);">One person, one phone</span></li>
             </ul>
-            <a class="btn btn-secondary" href="mailto:dmitry@visionaryminds.solutions?subject=Receptionist%20setup%20pricing">Ask about setup pricing</a>
           </article>
-          <article class="panel price-card">
-            <div class="label">Care plan · monthly</div>
-            <h3>It keeps running. We keep it sharp.</h3>
-            <ul class="list">
-              <li>24/7 answering, every day of the year</li>
-              <li>Script tweaks whenever your business changes</li>
-              <li>Monthly health check on calls & messages</li>
-              <li>Direct support when you need it</li>
+          <article class="panel">
+            <div class="label">Big receptionist services</div>
+            <h3>Per-call meters</h3>
+            <ul style="list-style:none;padding:0;margin-top:12px;display:grid;gap:10px;">
+              <li><span style="color:#ff6b6b;">&#10005;</span> <span style="color:var(--muted);">Costs climb as you grow</span></li>
+              <li><span style="color:#ff6b6b;">&#10005;</span> <span style="color:var(--muted);">Generic script, not yours</span></li>
+              <li><span style="color:#ff6b6b;">&#10005;</span> <span style="color:var(--muted);">You never own anything</span></li>
             </ul>
-            <a class="btn btn-secondary" href="mailto:dmitry@visionaryminds.solutions?subject=Receptionist%20care%20plan">Ask about the care plan</a>
+          </article>
+          <article class="panel" style="border-color:rgba(74,158,255,0.35);background:rgba(74,158,255,0.06);">
+            <div class="label" style="color:var(--accent);">The VisionaryMinds Solution</div>
+            <h3>$249/mo flat</h3>
+            <ul style="list-style:none;padding:0;margin-top:12px;display:grid;gap:10px;">
+              <li><span style="color:var(--accent);">&#10003;</span> <span style="color:var(--muted);">Screens 24/7, every day</span></li>
+              <li><span style="color:var(--accent);">&#10003;</span> <span style="color:var(--muted);">Your script, your business</span></li>
+              <li><span style="color:var(--accent);">&#10003;</span> <span style="color:var(--muted);">Live within 24 hours, no sales call</span></li>
+            </ul>
           </article>
         </div>
       </div>
     </section>
 
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Work with us</div>
+          <h2>Choose your level.</h2>
+          <p>Start with Cove self-serve. Upgrade to white-glove. Or go fully custom. Every path leads to the same place &mdash; a business that operates on another level.</p>
+        </div>
+        <div class="grid-3">
+          <article class="panel price-card" style="border-color:rgba(74,158,255,0.35);background:rgba(74,158,255,0.06);">
+            <div class="label" style="color:var(--accent);">Self-Serve · most popular</div>
+            <h3>$249<span style="font-size:1rem;color:var(--muted);font-weight:500;">/mo</span></h3>
+            <ul style="list-style:none;padding:0;margin-top:12px;display:grid;gap:10px;">
+              <li><span style="color:var(--accent);">&#10003;</span> <span style="color:var(--muted);">Your own AI receptionist number — screens calls 24/7</span></li>
+              <li><span style="color:var(--accent);">&#10003;</span> <span style="color:var(--muted);">Custom greeting, your questions, instant email briefing per call</span></li>
+              <li><span style="color:var(--accent);">&#10003;</span> <span style="color:var(--muted);">Call recordings + transcripts, urgent calls flagged</span></li>
+              <li><span style="color:var(--accent);">&#10003;</span> <span style="color:var(--muted);">Live in under 10 minutes — sign up, no call needed</span></li>
+              <li><span style="color:var(--accent);">&#10003;</span> <span style="color:var(--muted);">7-day money-back guarantee</span></li>
+            </ul>
+            <a class="btn btn-call" href="#signup">Get started</a>
+          </article>
+          <article class="panel price-card">
+            <div class="label">White-Glove · done for you</div>
+            <h3>$500<span style="font-size:1rem;color:var(--muted);font-weight:500;">/mo</span></h3>
+            <p style="margin-top:10px;color:var(--muted);line-height:1.72;">Everything in Self-Serve, plus custom script written for your business, CRM and calendar integrations, and personal onboarding.</p>
+            <p style="margin-top:10px;color:var(--muted);line-height:1.72;">$2,000 one-time setup. <strong style="color:var(--accent-2);">Setup waived for the first 3 in your trade &mdash; ask if you qualify.</strong></p>
+            <p style="margin-top:10px;font-size:0.85rem;color:var(--muted);">30-day money-back guarantee on setup.</p>
+            <a class="btn btn-secondary" href="mailto:dmitry@visionaryminds.solutions?subject=White-glove%20receptionist">Get started</a>
+          </article>
+          <article class="panel price-card">
+            <div class="label">Custom · beyond phone</div>
+            <h3>Let's talk</h3>
+            <p style="margin-top:10px;color:var(--muted);line-height:1.72;">Full custom AI systems — beyond just answering calls. Quoting tools, follow-up automation, voice booking, scheduling flows. Scoped to what your business needs, priced on scope.</p>
+            <a class="btn btn-secondary" href="mailto:dmitry@visionaryminds.solutions?subject=Custom%20AI%20project">Book a consultation</a>
+          </article>
+        </div>
+        <p style="text-align:center;margin-top:20px;color:var(--muted);font-size:0.9rem;">Annual option: $2,490/yr — two months free. <a href="#contact" style="color:var(--accent);">Ask about annual billing.</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="calculator">
+      <div class="wrap">
+        <div class="section-head" style="text-align:center;max-width:640px;margin:0 auto 28px;">
+          <div class="label">Do the math</div>
+          <h2>What are missed calls costing you?</h2>
+          <p>Two questions. The real cost of voicemail.</p>
+        </div>
+        <div class="panel" style="max-width:560px;margin:0 auto;padding:32px;">
+          <div style="display:grid;gap:20px;">
+            <div>
+              <label for="calc-calls" style="display:block;margin-bottom:8px;color:var(--text);font-weight:600;">Missed calls per week</label>
+              <input type="range" id="calc-calls" min="1" max="20" value="3" style="width:100%;" oninput="updateCalc()">
+              <div style="text-align:center;margin-top:8px;font-size:1.5rem;font-weight:700;color:var(--accent);"><span id="calc-calls-val">3</span></div>
+            </div>
+            <div>
+              <label for="calc-value" style="display:block;margin-bottom:8px;color:var(--text);font-weight:600;">Average job value ($)</label>
+              <input type="range" id="calc-value" min="100" max="5000" step="50" value="500" style="width:100%;" oninput="updateCalc()">
+              <div style="text-align:center;margin-top:8px;font-size:1.5rem;font-weight:700;color:var(--accent);">$<span id="calc-value-val">500</span></div>
+            </div>
+            <div style="text-align:center;padding:24px 0 8px;border-top:1px solid rgba(255,255,255,0.08);">
+              <div style="color:var(--muted);font-size:0.9rem;margin-bottom:8px;">Estimated cost of missed calls</div>
+              <div style="font-size:2.5rem;font-weight:800;color:#ff6b6b;">$<span id="calc-result">3,248</span><span style="font-size:1rem;color:var(--muted);font-weight:500;">/mo</span></div>
+              <div style="margin-top:12px;color:var(--muted);font-size:0.9rem;">Cove Self-Serve: <strong style="color:var(--accent);">$249/mo</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        function updateCalc() {
+          var calls = parseInt(document.getElementById('calc-calls').value);
+          var value = parseInt(document.getElementById('calc-value').value);
+          document.getElementById('calc-calls-val').textContent = calls;
+          document.getElementById('calc-value-val').textContent = value.toLocaleString();
+          // Assume 50% of missed calls would have become jobs
+          var monthly = Math.round(calls * 4.33 * value * 0.5);
+          document.getElementById('calc-result').textContent = monthly.toLocaleString();
+        }
+        updateCalc();
+      </script>
+    </section>
+
     <section class="section" id="services">
       <div class="wrap">
         <div class="section-head">
-          <div class="label">More from VisionaryMinds</div>
-          <h2>Everything else we build.</h2>
+          <div class="label">Visionary Minds Solutions</div>
+          <h2>One company. Every system.</h2>
+          <p style="margin-left:auto;margin-right:auto;max-width:52ch;">Cove is our flagship. But it&rsquo;s one system. We build custom AI solutions across your entire business &mdash; wherever you&rsquo;re losing time, leaking revenue, or doing work a machine should handle.</p>
         </div>
         <div class="grid-3">
           <article class="panel">
-            <div class="label">AI & automation</div>
+            <div class="label">Flagship</div>
+            <h3>Cove &mdash; the AI receptionist.</h3>
+            <p>Screens your calls, asks your questions, emails you every detail. From $249/mo. <a href="#demo" style="color:var(--accent);">Hear it working &uarr;</a></p>
+          </article>
+          <article class="panel">
+            <div class="label">Automation</div>
             <h3>Systems that do the busy work.</h3>
-            <p>Lead follow-up flows, AI assistants, and workflow automation for your team.</p>
+            <p>Lead follow-up flows, AI assistants, workflow automation &mdash; custom-built around how your business actually operates.</p>
           </article>
           <article class="panel">
-            <div class="label">Custom websites</div>
-            <h3>Clean sites, built around you.</h3>
-            <p>Fast, focused websites and landing pages aligned with the rest of your systems.</p>
+            <div class="label">Custom</div>
+            <h3>Software shaped to your business.</h3>
+            <p>Quoting tools, voice systems, scheduling flows &mdash; custom builds, scoped to what you need. <a href="#pricing" style="color:var(--accent);">See custom tier &uarr;</a></p>
           </article>
-          <article class="panel">
-            <div class="label">Tech setup & support</div>
-            <h3>The technical glue, handled.</h3>
-            <p>Integrations, SEO basics, and ongoing support — no fighting with settings.</p>
-          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="founder">
+      <div class="wrap">
+        <div class="panel" style="text-align:center;padding:48px 32px;">
+          <p style="font-size:1.6rem;line-height:1.5;max-width:32ch;margin:0 auto;font-style:italic;color:var(--text);">&ldquo;Once you operate this way, you never go back.&rdquo;</p>
+          <p style="margin-top:20px;color:var(--muted);">&mdash; Dmitry, Founder</p>
+          <p style="margin-top:24px;color:var(--muted);font-size:0.9rem;max-width:48ch;margin-left:auto;margin-right:auto;line-height:1.7;">Dmitry builds custom AI systems for businesses ready to operate on another level &mdash; more revenue, more freedom, a company transformed from the inside out.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="signup">
+      <div class="wrap">
+        <div class="panel" style="max-width:560px;margin:0 auto;padding:40px 32px;text-align:center;border-color:rgba(74,158,255,0.35);background:rgba(74,158,255,0.06);">
+          <div class="label" style="color:var(--accent);">Get started</div>
+          <h2 style="margin-top:12px;">Your receptionist,<br>live within 24 hours.</h2>
+          <p style="color:var(--muted);line-height:1.75;margin:16px auto 0;max-width:44ch;">Three steps. No sales call. No tech skills needed.</p>
+          <div style="text-align:left;margin:28px auto 0;max-width:44ch;display:grid;gap:18px;">
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(74,158,255,0.15);border:1px solid rgba(74,158,255,0.30);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);">1</div>
+              <div><strong style="color:var(--text);">Tell us about your business.</strong><br><span style="color:var(--muted);font-size:0.92rem;">Your name, business name, and what you want your receptionist to say. Takes 2 minutes.</span></div>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(74,158,255,0.15);border:1px solid rgba(74,158,255,0.30);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);">2</div>
+              <div><strong style="color:var(--text);">We activate your Cove line.</strong><br><span style="color:var(--muted);font-size:0.92rem;">Your number, your greeting, your questions &mdash; configured and tested. You&rsquo;re live within 24 hours.</span></div>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(74,158,255,0.15);border:1px solid rgba(74,158,255,0.30);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);">3</div>
+              <div><strong style="color:var(--text);">Start at $249/mo.</strong><br><span style="color:var(--muted);font-size:0.92rem;">7-day money-back guarantee. Cancel anytime.</span></div>
+            </div>
+          </div>
+          <div style="margin-top:32px;">
+            <a class="btn btn-call" href="mailto:dmitry@visionaryminds.solutions?subject=Cove%20signup&body=Hi%20Dmitry%2C%0A%0AMy%20name%3A%20%0AMy%20business%20name%3A%20%0AWhat%20I%20want%20my%20receptionist%20to%20say%3A%20%0A%0AThanks!" style="font-size:1.1rem;padding:16px 40px;">Start my signup</a>
+            <p style="margin-top:16px;color:var(--muted);font-size:0.85rem;">Opens your email with a pre-filled signup &mdash; just fill in the blanks and hit send.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -850,15 +1149,14 @@
     <section class="cta" id="contact">
       <div class="wrap cta-shell">
         <div class="cta-copy">
-          <div class="label">Contact</div>
-          <h2>Talk to us.</h2>
+          <div class="label">Visionary Minds Solutions</div>
+          <h2>Begin.</h2>
           <p>
-            Call, email, or DM. Tell us about your business in a few lines and we'll take it from there.
+            Tell us about your business. We&rsquo;ll show you what another level looks like.
           </p>
         </div>
         <div class="cta-actions">
-          <!-- DEMO NUMBER PLACEHOLDER -->
-          <a class="btn btn-call" href="tel:+15550102030">Call us</a>
+          <a class="btn btn-call" href="tel:+16193402683">Call us</a>
           <a class="btn btn-primary" href="mailto:dmitry@visionaryminds.solutions?subject=AI%20receptionist%20inquiry">Email me</a>
           <a class="btn btn-secondary" href="https://instagram.com/visionaryminds.solutions" target="_blank" rel="noopener noreferrer">Instagram DM</a>
         </div>
