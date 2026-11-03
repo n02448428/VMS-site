@@ -1,8 +1,8 @@
 # VisionaryMinds Solutions
 
-> Official website for VisionaryMinds Solutions (VMS) — an AI-powered business services agency specializing in AI phone receptionists, automation workflows, and lead generation systems for small-to-medium businesses.
+> Official website for VisionaryMinds Solutions (VMS) — an AI agency for San Diego home-service businesses. Its product, Cove, is an AI phone receptionist.
 
-**Live Site:** [visionaryminds.solutions](https://visionaryminds.solutions) | 52+ deployments | HTML/CSS/JS + GitHub Pages
+**Live Site:** [visionaryminds.solutions](https://visionaryminds.solutions) | HTML/CSS/JS + GitHub Pages
 
 ---
 
@@ -11,10 +11,9 @@
 This is the production website for VisionaryMinds Solutions, my AI automation agency. The site presents the agency's service offerings, captures leads, and establishes professional credibility for B2B outreach.
 
 **VMS Core Services:**
-- AI Phone Receptionist (24/7 inbound call handling powered by AI voice agents)
-- Lead generation automation and CRM integration (GoHighLevel)
-- Business workflow automation and AI chat integrations
-- Website development and deployment for SMBs
+- Cove, the AI Phone Receptionist: answers calls the owner can't take, opens every call by saying it is an AI receptionist and that the call may be recorded, asks custom per-client questions (white-glove setup), and emails the owner a summary
+- Pricing: $2,000 setup + $500/mo, with a 30-day money-back guarantee on setup
+- Contact: dmitry@visionaryminds.solutions or the demo line, (619) 340-2683
 
 ---
 
@@ -35,7 +34,7 @@ This is the production website for VisionaryMinds Solutions, my AI automation ag
 ```
 VMS-site/
 ├── index.html        # Main landing page
-├── index2.html       # Secondary / alternate landing
+├── index2.html       # Redirects to /
 ├── privacy.html      # Privacy policy
 ├── terms.html        # Terms of service
 ├── vms logo.png      # Brand logo
@@ -46,20 +45,20 @@ VMS-site/
 
 ## About VisionaryMinds Solutions
 
-VMS is an AI agency built to help small businesses stop missing calls and losing leads. The flagship product is an AI phone receptionist that answers calls 24/7, qualifies leads, books appointments, and routes inquiries — powered by AI voice technology integrated with GoHighLevel CRM.
+VMS is an AI agency built to help San Diego business owners stop missing calls and losing leads. The flagship product, Cove, is an AI phone receptionist that answers the calls the owner can't take, asks the owner's custom questions, and emails the owner a summary of every call. It does not text, book jobs, or integrate with calendars or CRMs.
 
-**Target markets:** Home services, medical/dental, legal, real estate, restaurants, and any SMB that relies on inbound phone calls.
+**Target market:** Local San Diego business owners, home services first (HVAC, electrical, plumbing, roofing, landscaping).
 
 ---
 
 ## Roadmap
 
-- [ ] Add service-specific landing pages (AI receptionist, lead gen)
-- [ ] Integrate contact/demo request form with CRM webhook
+- [ ] Add service-specific landing pages
 - [ ] Add case study / testimonial section
 - [ ] Build out pricing page
 - [ ] Add live chat widget powered by AI
 
 ---
 
-*Built and operated by [Dmitry Markelov](https://dmitrymarkelov.com) — Carlsbad, CA*
+*Built and operated by [Dmitry Markelov](https://dmitrymarkelov.com) — San Diego, CA*
+
