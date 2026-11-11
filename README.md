@@ -12,7 +12,7 @@ This is the production website for VisionaryMinds Solutions, my AI automation ag
 
 **VMS Core Services:**
 - Cove, the AI Phone Receptionist: answers calls the owner can't take, opens every call by saying it is an AI receptionist and that the call may be recorded, asks custom per-client questions (white-glove setup), and emails the owner a summary
-- Pricing: $2,000 setup + $500/mo, with a 30-day money-back guarantee on setup
+- Pricing: $2,000 setup + $500/mo. All payments are final — no refunds.
 - Contact: dmitry@visionaryminds.solutions or the demo line, (619) 340-2683
 
 ---
@@ -60,5 +60,5 @@ VMS is an AI agency built to help San Diego business owners stop missing calls a
 
 ---
 
-*Built and operated by [Dmitry Markelov](https://dmitrymarkelov.com) — San Diego, CA*
+*Built and operated by [Dmitry Markelov](https://dmitrymarkelov.com) — La Mesa, CA*
 
