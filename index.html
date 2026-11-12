@@ -4,7 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VisionaryMinds Solutions — AI Receptionist for San Diego Home-Service Businesses</title>
-  <meta name="description" content="Cove is an AI receptionist for San Diego home-service businesses. It answers calls you can't take, asks your custom questions, and sends you a summary. Call the live demo now.">
+  <meta name="description" content="Cove is an AI receptionist for San Diego home-service businesses. It answers the calls you miss and emails you the details. Free 30-day trial.">
+  <meta property="og:title" content="VisionaryMinds Solutions — AI Receptionist for San Diego Home-Service Businesses">
+  <meta property="og:description" content="Cove is an AI receptionist for San Diego home-service businesses. It answers the calls you miss and emails you the details. Free 30-day trial.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://visionaryminds.solutions/">
+  <meta property="og:image" content="https://visionaryminds.solutions/vms%20logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="VisionaryMinds Solutions — AI Receptionist for San Diego Home-Service Businesses">
+  <meta name="twitter:description" content="Cove is an AI receptionist for San Diego home-service businesses. It answers the calls you miss and emails you the details. Free 30-day trial.">
+  <meta name="twitter:image" content="https://visionaryminds.solutions/vms%20logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -100,6 +109,32 @@
     }
 
     .nav-link:hover { color: var(--text); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      padding: 11px 10px;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+    }
 
     .btn {
       display: inline-flex;
@@ -658,7 +693,27 @@
         grid-template-columns: 1fr;
         display: grid;
       }
-      .nav .nav-link { display: none; }
+      .nav { position: relative; }
+      .nav-toggle { display: inline-flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        min-width: 210px;
+        padding: 8px;
+        background: rgba(12,15,19,0.97);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        z-index: 30;
+      }
+      .nav.open .nav-links { display: flex; }
+      .nav.open .nav-link { display: block; padding: 12px 14px; border-radius: 10px; }
+      .nav.open .nav-link:hover { background: rgba(255,255,255,0.06); }
     }
 
     @media (max-width: 640px) {
@@ -693,9 +748,12 @@
         <span class="brand-name">VisionaryMinds Solutions</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a class="nav-link" href="#how">How it works</a>
-        <a class="nav-link" href="#pricing">Pricing</a>
-        <a class="nav-link" href="#contact">Contact</a>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+        <div class="nav-links" id="nav-links">
+          <a class="nav-link" href="#how">How it works</a>
+          <a class="nav-link" href="#pricing">Pricing</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </div>
         <a class="btn btn-call" href="tel:+16193402683">Call the demo</a>
       </nav>
     </div>
@@ -739,17 +797,19 @@
           </div>
           <div class="filter-col filter-signal">
             <div class="filter-label">With your AI receptionist</div>
-            <span class="tag">Every missed call answered</span>
+            <span class="tag">Missed calls answered</span>
             <span class="tag">Asked your questions</span>
             <span class="tag">Summary sent to you</span>
             <span class="tag">Flagged if urgent</span>
+            <span class="tag">Spam &amp; scam calls rejected</span>
           </div>
         </div>
         <div class="hero-pills" aria-label="Key points">
           <span class="mini-pill">Covers missed calls day &amp; night</span>
-          <span class="mini-pill">Captures every missed caller</span>
+          <span class="mini-pill">Captures missed callers</span>
           <span class="mini-pill">Asks your questions</span>
           <span class="mini-pill">Sends you a summary</span>
+          <span class="mini-pill">Spam &amp; scam calls rejected</span>
         </div>
       </div>
     </section>
@@ -759,7 +819,7 @@
       <div class="wrap">
         <div class="panel" style="text-align:center;padding:40px 32px;border-color:rgba(74,158,255,0.40);background:linear-gradient(180deg,rgba(74,158,255,0.10),rgba(74,158,255,0.03));">
           <div class="label" style="color:var(--accent);">Free 30-day trial</div>
-          <h2 style="margin-top:14px;font-family:Manrope,Inter,sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:-0.04em;line-height:1.1;">Never miss another job.</h2>
+          <h2 style="margin-top:14px;font-family:Manrope,Inter,sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:-0.04em;line-height:1.1;">Stop losing jobs to missed calls.</h2>
           <p style="margin:16px auto 0;max-width:52ch;color:var(--muted);line-height:1.75;font-size:1.05rem;">Try the AI receptionist free for 30 days &mdash; one home-service business per area. Walk away free at day 30 owing nothing.</p>
           <div class="hero-actions" style="justify-content:center;margin-top:24px;">
             <a class="btn btn-call" href="tel:+16193402683">Call the live demo</a>
@@ -772,7 +832,7 @@
     <section class="section" id="stats">
       <div class="wrap">
         <div class="grid-3" style="text-align:center;">
-          <article class="panel"><h3 style="font-size:2.6rem;color:var(--accent);margin:0;">24/7</h3><p>Every call you miss gets screened, nights &amp; weekends included</p></article>
+          <article class="panel"><h3 style="font-size:2.6rem;color:var(--accent);margin:0;">24/7</h3><p>Missed calls get screened, nights &amp; weekends included</p></article>
           <article class="panel"><h3 style="font-size:2.6rem;color:var(--accent);margin:0;">$500</h3><p>Flat per month. No per-call meters, ever</p></article>
           <article class="panel"><h3 style="font-size:2.6rem;color:var(--accent);margin:0;">24<span style="font-size:1.4rem;">hr</span></h3><p>From signup to live receptionist</p></article>
         </div>
@@ -785,7 +845,7 @@
         <div class="panel" style="text-align:center;padding:56px 32px;border-color:rgba(74,158,255,0.40);background:linear-gradient(180deg,rgba(74,158,255,0.10),rgba(74,158,255,0.03));">
           <div class="label" style="color:var(--accent);">Your secret weapon</div>
           <h2 style="margin-top:14px;font-family:Manrope,Inter,sans-serif;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-0.05em;line-height:1;">While competitors lose calls<br>to voicemail, you operate above it.</h2>
-          <p style="margin:20px auto 0;max-width:52ch;color:var(--muted);line-height:1.75;font-size:1.05rem;">It screens your calls, asks the questions you&rsquo;d ask, and sends you everything &mdash; name, what they need, how to reach them. You never wonder who called.</p>
+          <p style="margin:20px auto 0;max-width:52ch;color:var(--muted);line-height:1.75;font-size:1.05rem;">It screens your calls, asks the questions you&rsquo;d ask, and sends you everything &mdash; name, what they need, how to reach them. So you know who called.</p>
         </div>
       </div>
     </section>
@@ -794,8 +854,8 @@
     <section class="section" id="dont-lose">
       <div class="wrap">
         <div style="text-align:center;padding:40px 24px;">
-          <h2 style="font-family:Manrope,Inter,sans-serif;font-size:clamp(2.8rem,8vw,5rem);letter-spacing:-0.05em;line-height:0.95;margin:0;">DON&rsquo;T LOSE JOBS.</h2>
-          <p style="margin:22px auto 0;max-width:52ch;color:var(--muted);line-height:1.75;font-size:1.1rem;">Know who&rsquo;s calling and why &mdash; without picking up your phone. Every missed caller greeted. Every detail captured. Every summary in your inbox before you&rsquo;ve finished what you&rsquo;re doing.</p>
+          <h2 style="font-family:Manrope,Inter,sans-serif;font-size:clamp(2.8rem,8vw,5rem);letter-spacing:-0.05em;line-height:0.95;margin:0;">STOP LOSING JOBS TO VOICEMAIL.</h2>
+          <p style="margin:22px auto 0;max-width:52ch;color:var(--muted);line-height:1.75;font-size:1.1rem;">Know who&rsquo;s calling and why &mdash; without picking up your phone. Missed callers greeted. Details captured. Summaries in your inbox before you&rsquo;ve finished what you&rsquo;re doing.</p>
         </div>
       </div>
     </section>
@@ -814,6 +874,7 @@
             <div class="demo-actions">
               <a class="btn btn-call" href="tel:+16193402683">Tap to call</a>
             </div>
+            <p style="margin-top:20px;font-size:0.95rem;color:var(--muted);">Known spam and scam numbers are rejected before the call is answered, so they never reach you. <a href="https://withcove.co" style="color:var(--accent);">Learn more at withcove.co &rarr;</a></p>
             <div style="margin-top:28px;padding:20px;border-radius:16px;background:rgba(74,158,255,0.06);border:1px solid rgba(74,158,255,0.20);">
               <div class="label" style="margin-bottom:10px;">What lands in your inbox</div>
               <p style="font-size:0.95rem;line-height:1.7;color:var(--text);"><strong>New urgent call &mdash; 11:47 PM</strong><br><span style="color:var(--muted);">Water heater leaking, garage flooding. Caller: Mike R., 619-555-0147. Flagged urgent.</span></p>
@@ -835,7 +896,7 @@
           <span class="mini-pill">Answers instantly</span>
           <span class="mini-pill">Asks the right questions</span>
           <span class="mini-pill">Flags what's urgent</span>
-          <span class="mini-pill">Sends you every detail</span>
+          <span class="mini-pill">Sends you the details</span>
         </div>
       </div>
     </section>
@@ -859,13 +920,13 @@
             <div class="mini-pill" style="margin-bottom:14px;color:var(--accent);border-color:rgba(74,158,255,0.30);">9:15 PM</div>
             <div class="label">After hours</div>
             <h3>It&rsquo;s 9pm. You&rsquo;re at dinner.</h3>
-            <p>An urgent call comes in at 9pm. Your receptionist answers, captures every detail, and flags it urgent. You wake up to a summary in your inbox &mdash; not a voicemail.</p>
+            <p>An urgent call comes in at 9pm. Your receptionist answers, captures the details, and flags it urgent. You wake up to a summary in your inbox &mdash; not a voicemail.</p>
           </article>
           <article class="panel" style="position:relative;overflow:hidden;">
             <div class="mini-pill" style="margin-bottom:14px;color:var(--accent);border-color:rgba(74,158,255,0.30);">30 days in</div>
             <div class="label">Growing</div>
             <h3>You stopped leaking jobs.</h3>
-            <p>Every missed call screened. Every lead captured. Every detail in your inbox before you&rsquo;ve had coffee. You&rsquo;re not working more &mdash; your business is simply operating on another level.</p>
+            <p>Missed calls screened. Leads captured. Details in your inbox before you&rsquo;ve had coffee. You&rsquo;re not working more &mdash; your business is simply operating on another level.</p>
           </article>
         </div>
       </div>
@@ -951,7 +1012,7 @@
           <article class="panel">
             <div class="label">03 · Operate</div>
             <h3>Your business, transformed.</h3>
-            <p>Every missed call handled. Every detail delivered to your inbox. More revenue, more freedom &mdash; a company that will never run the same way again.</p>
+            <p>Missed calls handled. Details delivered to your inbox. More revenue, more freedom &mdash; a company that will never run the same way again.</p>
           </article>
         </div>
       </div>
@@ -1101,7 +1162,7 @@
           <article class="panel">
             <div class="label">Flagship</div>
             <h3>Cove &mdash; the AI receptionist.</h3>
-            <p>Answers calls you can&rsquo;t take, asks your questions, sends you a summary. $500/mo. <a href="#demo" style="color:var(--accent);">Hear it working &uarr;</a></p>
+            <p>Answers calls you can&rsquo;t take, asks your questions, sends you a summary. $500/mo. <a href="https://withcove.co" style="color:var(--accent);">Visit withcove.co &rarr;</a> <a href="#demo" style="color:var(--accent);">Hear it working &uarr;</a></p>
           </article>
           <article class="panel">
             <div class="label">Automation</div>
@@ -1196,10 +1257,28 @@
         © 2026 VisionaryMinds Solutions · La Mesa, CA 91942
       </span>
       <span class="footer-links">
+        <a href="https://withcove.co">Cove</a>
         <a href="./privacy.html">Privacy</a>
         <a href="./terms.html">Terms</a>
       </span>
     </div>
   </footer>
+  <script>
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var nav = document.querySelector('.nav');
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.addEventListener('click', function (e) {
+        if (e.target && e.target.classList && e.target.classList.contains('nav-link')) {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
